@@ -388,10 +388,12 @@
         NSIndexPath *indexPath = [self.profileTable indexPathForSelectedRow];
         NSDictionary *dict = self.friendsArray[indexPath.row];
         foodieProf.isFoodie = NO;
+        NSLog(@"%@", dict);
         foodieProf.RMUUsername = [dict objectForKey:@"username"];
         foodieProf.facebookID = [dict objectForKey:@"facebook_id"];
         NSString *nameOfFriend = [NSString stringWithFormat:(@"%@ %@"), [dict objectForKey:@"first_name"], [dict objectForKey:@"last_name"]];
         foodieProf.nameOfOtherUser = nameOfFriend;
+        foodieProf.RMUUserID = [dict objectForKey:@"recommenu_id"];
     }
     else {
         NSLog(@"Unknown ID: %@", segue.identifier);

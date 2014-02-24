@@ -83,10 +83,18 @@
              NSArray *objects = [responseObject objectForKey:@"objects"];
              if (objects.count > 0){
                  NSLog(@"Haha! obtained a good foursquare id");
-                 NSString *newFoursquareID = [objects[0] objectForKey:@"good_foursquare_venue_id"];
-                 [self obtainMenuFromFoursquareWithID:newFoursquareID
-                                 withNameOfRestaurant:name
-                                      withHTTPManager:manager];
+                 NSString *recommenuVenueID = [objects[0] objectForKey:@"recommenu_venue_id"];
+                 if (![recommenuVenueID isEqualToString:@""]){
+                     [self obtainMenuFromRecommenuWithID:recommenuVenueID
+                                    withNameOfRestaurant:name
+                                         withHTTPManager:manager];
+                 }
+                 else {
+                     NSString *newFoursquareID = [objects[0] objectForKey:@"good_foursquare_venue_id"];
+                     [self obtainMenuFromFoursquareWithID:newFoursquareID
+                                     withNameOfRestaurant:name
+                                          withHTTPManager:manager];
+                 }
              }
              else {
                  [self obtainMenuFromFoursquareWithID:foursquareID
@@ -99,6 +107,34 @@
              [self obtainMenuFromFoursquareWithID:foursquareID
                              withNameOfRestaurant:name
                                   withHTTPManager:manager];
+         }];
+}
+
+/*
+ *  Asks our db for a menu
+ */
+
+- (void)obtainMenuFromRecommenuWithID:(NSString*)recommenuID withNameOfRestaurant:(NSString*)name withHTTPManager: (AFHTTPRequestOperationManager*)manager
+{
+    [manager GET:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/venue/%@"), recommenuID]
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [self.view setHidden:NO];
+             NSLog(@"Success with venue response: %@", responseObject);
+             self.currentRestaurant = [[RMURestaurant alloc]initWithDictionary:[responseObject objectForKey:@"response"]
+                                                             andRestaurantName:name];
+             if (self.currentRestaurant.menus.count == 0)
+                 [self setChildViewControllersUIWithCurrentRestaurant];
+             // Questionable.........
+#warning TODO FIXXXXXX
+             else
+                 [self gatherRatingsForMenu];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"ERROR with venue %@, with response string: %@", error, operation.responseString);
+             RMUAppDelegate *appDelegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+             [appDelegate showMessage:@"Sorry there was an error communicating with the server, please try again!"
+                            withTitle:@"Server Error!"];
          }];
 }
 

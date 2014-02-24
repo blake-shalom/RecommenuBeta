@@ -17,7 +17,7 @@
 @protocol RMUFoodieFriendPopupDelegate
 
 - (void)presentFriendSegueWithRMUUsername:(NSString*)username withName:(NSString*)name withFacebookID:(NSString*)fbID;
-- (void)presentFoodieSegueWithRMUUsername:(NSString*)username withName:(NSString*)name withFacebookID:(NSString*)fbID;
+- (void)presentFoodieSegueWithRMUUsername:(NSString*)username withName:(NSString*)name withFacebookID:(NSString*)fbID withRecommenuID: (NSString*)rmuID;
 
 @end
 

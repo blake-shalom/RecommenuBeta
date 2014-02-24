@@ -8,6 +8,7 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 #import <UIKit/UIKit.h>
+
 #import "RMUButton.h"
 #import "GAITrackedViewController.h"
 #import "RMUSavedUser.h"
@@ -22,6 +23,7 @@
 - (void)showFoodieElements;
 
 @property BOOL isFoodie;
+@property NSString *RMUUserID;
 @property NSString *RMUUsername;
 @property NSString *facebookID;
 @property NSString *nameOfOtherUser;

@@ -47,18 +47,13 @@
     [self.numRatingsLabel setText:@""];
     self.ratingsArray = [[NSMutableArray alloc]init];
     
-    //Handle foodie elements
-    if (self.isFoodie)
-        [self showFoodieElements];
-    else
-        [self hideFoodieElements];
-
     // Handle facebook elements
     if (self.facebookID)
         [self handleFacebookProfile];
     if (self.nameOfOtherUser)
         [self.nameLabel setText:self.nameOfOtherUser];
     
+    [self hideFoodieElements];
     // Do waiting stuff
     [self.loadindicator startAnimating];
     [self.friendNoRatingLabel setHidden:YES];
@@ -66,6 +61,8 @@
     // Load Recommendations
     [self loadRecommendations];
     
+    // Load the blog if it exists
+    [self loadBlog];
 	// Do any additional setup after loading the view.
 }
 
@@ -92,6 +89,35 @@
 #pragma mark - Networking
 
 /*
+ *  Loads blog into the profile
+ */
+
+- (void)loadBlog
+{
+    if (self.RMUUserID) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                         forHTTPHeaderField:@"Authorization"];
+        [manager GET:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/user_profile/%@/"),self.RMUUserID]
+          parameters:nil
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 NSLog(@"response from user_prof: %@", responseObject);
+                 NSString *website = [responseObject objectForKey:@"website"];
+                 NSLog(@"Website %@", website);
+                 if (!(website == (NSString*) [NSNull null])){
+                     [self showFoodieElements];
+                     [self.blogButton setTitle:website forState:UIControlStateNormal];
+                 }
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"Error from user_prof: %@ with resp string: %@", error, operation.responseString);
+                 // Failed call, just don't show the blog elements
+             }];
+    }
+}
+
+/*
  *  Loads Recommendations for user picked
  */
 
@@ -100,7 +126,6 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
                      forHTTPHeaderField:@"Authorization"];
-
     [manager GET:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/rating/?user__username=%@"), self.RMUUsername]
       parameters:Nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -254,6 +279,17 @@
         NSLog(@"4[] ID: %@", foursquareID);
         [nextScreen getRestaurantWithFoursquareID:foursquareID andName:restaurant];
     }
+}
+
+#pragma mark - Interactivity
+
+/*
+ *  Opens a webview with the blog in it
+ */
+
+- (IBAction)openFoodBlog:(id)sender
+{
+
 }
 
 @end

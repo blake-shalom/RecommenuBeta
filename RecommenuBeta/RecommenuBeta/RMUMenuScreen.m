@@ -35,6 +35,7 @@
 @property NSString *friendUsername;
 @property NSString *friendFBID;
 @property NSString *friendName;
+@property NSString *friendID;
 
 @end
 
@@ -53,8 +54,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.restNameLabel setTextColor:[UIColor RMUTitleColor]];
-    [self.currMenuLabel setTextColor:[UIColor RMUTitleColor]];
+    [self.restNameLabel setTextColor:[UIColor whiteColor]];
+    [self.currMenuLabel setTextColor:[UIColor whiteColor]];
     [self.leftSectionLabel setTextColor:[UIColor RMUDividingGrayColor]];
     [self.rightSectionLabel setTextColor:[UIColor RMUDividingGrayColor]];
     [self.currSectionLabel setTextColor:[UIColor RMULogoBlueColor]];
@@ -104,7 +105,7 @@
 
 - (void)setupViews
 {
-    [self.restNameLabel setText:[self.currentRestaurant.restName uppercaseString]];
+    [self.restNameLabel setText:self.currentRestaurant.restName];
     [self.currMenuLabel setText:self.currentMenu.menuName];
     [self.currSectionLabel setText:self.currentCourse.courseName];
     // If there are more than one course set the label to each of the two courses to the left and right
@@ -122,11 +123,13 @@
     [self.carousel reloadData];
     
     // Menu visited, set notifications
-    if (self.currentRestaurant.menus.count > 0 && !self.navigationController){
-        RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+    RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+    if (self.currentRestaurant.menus.count > 0) {
         delegate.savedRestaurant = self.currentRestaurant;
-        delegate.shouldDelegateNotifyUser = YES;
+        delegate.vc = self;
     }
+    else
+        delegate.shouldDelegateNotifyUser = NO;
 
 }
 
@@ -203,8 +206,8 @@
     RMUMeal *selectedMeal = self.currentCourse.meals[sender.tag];
     if (selectedMeal.expertDislikes.intValue + selectedMeal.expertLikes.intValue != 0) {
         [self animateInGradientBeforePopupView:self.popup];
-        [self.popup populatePopupWithLikeArray:selectedMeal.facebookLikeID
-                              withDislikeArray:selectedMeal.facebookDislikeID
+        [self.popup populatePopupWithLikeArray:selectedMeal.foodieLikeID
+                              withDislikeArray:selectedMeal.foodieDislikeID
                               withNameofEntree:selectedMeal.mealName
                       areFoodieRecommendations:YES];
     }
@@ -490,7 +493,7 @@
         foodieProf.RMUUsername = self.friendUsername;
         foodieProf.facebookID = self.friendFBID;
         foodieProf.nameOfOtherUser = self.friendName;
-
+        foodieProf.RMUUserID = self.friendID;
     }
 }
 
@@ -583,9 +586,13 @@
  *  Presents a segue to a foodie's profile with given params
  */
 
-- (void)presentFoodieSegueWithRMUUsername:(NSString*)username withName:(NSString*)name withFacebookID:(NSString*)fbID
+- (void)presentFoodieSegueWithRMUUsername:(NSString*)username withName:(NSString*)name withFacebookID:(NSString*)fbID withRecommenuID:(NSString *)rmuID
 {
-    
+    self.friendFBID = fbID;
+    self.friendName = name;
+    self.friendUsername = username;
+    self.friendID = rmuID;
+    [self performSegueWithIdentifier:@"menuToOtherProfilePush" sender:self];
 }
 
 

@@ -264,11 +264,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfW-X0-ICQ">
-                                        <rect key="frame" x="260" y="22" width="50" height="37"/>
+                                        <rect key="frame" x="260" y="15" width="50" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <state key="normal" title="Rate">
-                                            <color key="titleColor" red="0.17254901959999999" green="0.79607843140000001" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -288,10 +288,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agm-ds-r55">
-                                        <rect key="frame" x="0.0" y="9" width="38" height="46"/>
+                                        <rect key="frame" x="0.0" y="11" width="38" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                        <state key="normal" image="button_back.png">
+                                        <state key="normal" image="back_arrow.png">
                                             <color key="titleColor" red="0.17254901960784313" green="0.79607843137254897" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -431,7 +431,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-IC-2ex">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-IC-2ex">
                                 <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -449,7 +449,7 @@
                                             <action selector="hideShroudView:" destination="Aa8-Db-N0V" eventType="touchUpInside" id="k9h-3j-cJa"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p31-4f-vcO" customClass="RMUFoodieFriendPopup">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p31-4f-vcO" customClass="RMUFoodieFriendPopup">
                                         <rect key="frame" x="28" y="191" width="264" height="123"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -485,6 +485,10 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="123" id="7ZG-Ap-XyR"/>
+                                            <constraint firstAttribute="width" constant="264" id="9P2-L0-jvQ"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="dislikeLabel" destination="rqL-FL-Nbr" id="1vU-2K-nta"/>
                                             <outlet property="donutGraph" destination="zoi-r4-ZFX" id="3vl-v7-JoD"/>
@@ -492,7 +496,7 @@
                                             <outlet property="likeLabel" destination="ErE-mw-8UU" id="7Tt-c1-m82"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-Vn-sxC" customClass="RMUFoodieFriendPopup">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-Vn-sxC" customClass="RMUFoodieFriendPopup">
                                         <rect key="frame" x="28" y="104" width="264" height="298"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -570,6 +574,10 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="264" id="9A6-JL-bdq"/>
+                                            <constraint firstAttribute="height" constant="298" id="yea-lY-eh4"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="dislikeLabel" destination="VwJ-X3-S3u" id="fSy-1g-d3g"/>
                                             <outlet property="donutGraph" destination="pUv-wT-qiK" id="xz4-1f-r9p"/>
@@ -580,12 +588,23 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="dfI-Vn-sxC" secondAttribute="centerY" constant="-0.5" id="2w4-um-o05"/>
+                                    <constraint firstItem="p31-4f-vcO" firstAttribute="leading" secondItem="9hK-IC-2ex" secondAttribute="leading" constant="28" id="3MH-bN-Dyl"/>
+                                    <constraint firstAttribute="centerY" secondItem="p31-4f-vcO" secondAttribute="centerY" id="Ozv-xg-MwD"/>
+                                    <constraint firstAttribute="centerX" secondItem="p31-4f-vcO" secondAttribute="centerX" id="b5p-Iv-cZK"/>
+                                    <constraint firstAttribute="width" constant="320" id="efw-9a-OcV"/>
+                                    <constraint firstAttribute="centerX" secondItem="dfI-Vn-sxC" secondAttribute="centerX" id="uxo-aJ-LWz"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9hK-IC-2ex" firstAttribute="top" secondItem="GPH-4H-bvM" secondAttribute="bottom" constant="43" id="2ym-Lc-qOf"/>
+                            <constraint firstItem="9hK-IC-2ex" firstAttribute="leading" secondItem="58U-xQ-M94" secondAttribute="leading" id="5BW-7J-ezf"/>
                             <constraint firstItem="NLM-vD-Kwi" firstAttribute="top" secondItem="GPH-4H-bvM" secondAttribute="bottom" constant="83" id="8Ao-3U-ba8"/>
                             <constraint firstItem="Ggr-K7-eCR" firstAttribute="top" secondItem="NLM-vD-Kwi" secondAttribute="bottom" id="IKs-Pr-vRl"/>
+                            <constraint firstItem="Ggr-K7-eCR" firstAttribute="top" secondItem="9hK-IC-2ex" secondAttribute="bottom" id="h4h-Mr-J87"/>
                             <constraint firstItem="NLM-vD-Kwi" firstAttribute="leading" secondItem="58U-xQ-M94" secondAttribute="leading" id="zRM-US-rc6"/>
                         </constraints>
                     </view>
@@ -670,7 +689,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="VK2-eo-ZFa">
+                                <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="VK2-eo-ZFa">
                                     <rect key="frame" x="0.0" y="72" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -996,7 +1015,7 @@
                                         <rect key="frame" x="124" y="27" width="77" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1032,19 +1051,6 @@
                                             <outlet property="delegate" destination="yVy-QN-2PL" id="dFz-SE-h73"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter code to activate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umL-9T-6Ig">
-                                        <rect key="frame" x="52" y="62" width="157" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FOODIE STATUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPe-k2-3kT">
-                                        <rect key="frame" x="69" y="92" width="122" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISy-Dh-2gz">
                                         <rect key="frame" x="214" y="6" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1060,8 +1066,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="6hd-Ui-LaM"/>
                                     <constraint firstAttribute="height" constant="195" id="YzA-Eq-c8T"/>
-                                    <constraint firstAttribute="centerX" secondItem="umL-9T-6Ig" secondAttribute="centerX" id="mSG-HU-5d3"/>
-                                    <constraint firstItem="umL-9T-6Ig" firstAttribute="top" secondItem="4Dr-YW-MdH" secondAttribute="top" constant="62" id="tbG-FX-Qxf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1411,7 +1415,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <state key="normal" title="Home">
-                                            <color key="titleColor" red="0.17254901959999999" green="0.79607843140000001" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1655,6 +1659,9 @@
                                         <state key="normal" title="www.blog.com">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="openFoodBlog:" destination="nPB-js-U8b" eventType="touchUpInside" id="UFF-d1-i9z"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foodie_certified.png" translatesAutoresizingMaskIntoConstraints="NO" id="P6k-5W-kbO">
                                         <rect key="frame" x="254" y="11" width="52" height="35"/>
@@ -1685,7 +1692,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dol-nw-hN5">
                                         <rect key="frame" x="0.0" y="0.0" width="47" height="68"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="button_back.png">
+                                        <state key="normal" image="back_arrow.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1696,7 +1703,7 @@
                                         <rect key="frame" x="88" y="19" width="144" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                        <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1748,50 +1755,58 @@
             </objects>
             <point key="canvasLocation" x="1704" y="1405"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qKh-ml-Moe">
+            <objects>
+                <viewController id="UO4-Ya-oTe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uYg-DB-nqD"/>
+                        <viewControllerLayoutGuide type="bottom" id="vWY-t4-3BU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Bc-cE-0K6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-u1-RUN">
+                                <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xCI-p8-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707" y="2167"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="button_back.png" width="10" height="18"/>
-        <image name="button_back.png" width="10" height="18"/>
+        <image name="back_arrow.png" width="13" height="22"/>
         <image name="button_x.png" width="16" height="16"/>
         <image name="dividing_line.png" width="2" height="37"/>
         <image name="facebook_off.png" width="29" height="29"/>
-        <image name="filter_bar.png" width="321" height="39"/>
-        <image name="filter_bar.png" width="321" height="39"/>
+        <image name="filter_bar.png" width="320" height="57"/>
         <image name="foodie_certified.png" width="29" height="29"/>
-        <image name="foodie_certified.png" width="29" height="29"/>
-        <image name="foodie_overlay.png" width="264" height="200"/>
+        <image name="foodie_overlay.png" width="268" height="203"/>
         <image name="gradient.png" width="320" height="548"/>
-        <image name="gradient.png" width="320" height="548"/>
-        <image name="gradient.png" width="320" height="548"/>
-        <image name="icon_foodie_activate.png" width="37" height="36"/>
+        <image name="icon_foodie_activate.png" width="38" height="40"/>
         <image name="icon_home.png" width="31" height="29"/>
         <image name="icon_list.png" width="28" height="21"/>
-        <image name="icon_list.png" width="28" height="21"/>
         <image name="icon_menu.png" width="20" height="20"/>
-        <image name="icon_profile.png" width="31" height="29"/>
         <image name="icon_profile.png" width="31" height="29"/>
         <image name="icon_search.png" width="31" height="29"/>
         <image name="icon_settings.png" width="31" height="29"/>
         <image name="logo.png" width="177" height="30"/>
-        <image name="logo.png" width="177" height="30"/>
         <image name="overlay_card.png" width="265" height="402"/>
-        <image name="overlay_crowd.png" width="272" height="127"/>
-        <image name="pattern_fullscreen.png" width="320" height="548"/>
-        <image name="pattern_fullscreen.png" width="320" height="548"/>
+        <image name="overlay_crowd.png" width="268" height="123"/>
+        <image name="pattern_fullscreen.png" width="320" height="568"/>
         <image name="popup_location.png" width="264" height="200"/>
-        <image name="popup_ratingbreakdown.png" width="265" height="299"/>
-        <image name="thumbs_up_profile.png" width="38" height="38"/>
-        <image name="thumbs_up_profile.png" width="38" height="38"/>
-        <image name="top_bar.png" width="320" height="69"/>
-        <image name="top_bar.png" width="320" height="69"/>
-        <image name="top_bar.png" width="320" height="69"/>
-        <image name="top_bar.png" width="320" height="69"/>
-        <image name="top_bar.png" width="320" height="69"/>
-        <image name="top_bar.png" width="320" height="69"/>
+        <image name="popup_ratingbreakdown.png" width="266" height="301"/>
+        <image name="thumbs_up_profile.png" width="39" height="39"/>
         <image name="top_bar.png" width="320" height="69"/>
         <image name="top_section.png" width="320" height="119"/>
         <image name="top_section_2.png" width="320" height="86"/>
-        <image name="user_default_profile.png" width="69" height="69"/>
         <image name="user_default_profile.png" width="69" height="69"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -130,7 +130,8 @@
     
     // Check if the coordinate is in the correct place else POPUP SOME SHIte
     
-    if ([RMUAppDelegate isInValidLocationWithCoordinate:coord]) {
+//    if ([RMUAppDelegate isInValidLocationWithCoordinate:coord]) {
+    if (YES) {
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coord.latitude
                                                                 longitude:coord.longitude
                                                                      zoom:16];
@@ -336,6 +337,9 @@
         RMURevealViewController *nextScreen = (RMURevealViewController*) segue.destinationViewController;
         [nextScreen getRestaurantWithFoursquareID:self.restID andName:self.restString];
         nextScreen.hidesBottomBarWhenPushed = YES;
+        RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+        delegate.shouldDelegateNotifyUser = YES;
+
     }
     else {
         NSLog(@"ERROR: UNKNOWN SEGUE %@", segue.identifier);

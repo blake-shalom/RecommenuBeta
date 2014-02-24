@@ -33,6 +33,7 @@
 @property BOOL shouldUserLoginFacebook;
 @property RMURestaurant *savedRestaurant;
 @property FBSession *session;
+@property UIViewController *vc;
 
 // Used to save across multiple files
 - (NSManagedObjectContext *) managedObjectContext;

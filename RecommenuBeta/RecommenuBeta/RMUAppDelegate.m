@@ -392,8 +392,7 @@
         RMURevealViewController *rateViewController = [mainstoryboard instantiateViewControllerWithIdentifier:@"RateRevealViewController"];
         NSLog(@"Current Restaurant name: %@, and ID %@", self.savedRestaurant.restName, self.savedRestaurant.restFoursquareID);
         rateViewController.currentRestaurant = self.savedRestaurant;
-        [self.window makeKeyAndVisible];
-        [self.window setRootViewController:rateViewController];
+        [self.vc.navigationController pushViewController:rateViewController animated:YES];
     }
 }
 

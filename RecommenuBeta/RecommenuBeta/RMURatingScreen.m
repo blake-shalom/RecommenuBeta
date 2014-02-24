@@ -44,8 +44,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.restNameLabel setTextColor:[UIColor RMUTitleColor]];
-    [self.currMenuLabel setTextColor:[UIColor RMUTitleColor]];
+    [self.restNameLabel setTextColor:[UIColor whiteColor]];
+    [self.currMenuLabel setTextColor:[UIColor whiteColor]];
     [self.leftSectionLabel setTextColor:[UIColor RMUDividingGrayColor]];
     [self.rightSectionLabel setTextColor:[UIColor RMUDividingGrayColor]];
     [self.currSectionLabel setTextColor:[UIColor RMULogoBlueColor]];
@@ -91,7 +91,7 @@
 
 - (void)setupViews
 {
-    [self.restNameLabel setText:[self.currentRestaurant.restName uppercaseString]];
+    [self.restNameLabel setText:self.currentRestaurant.restName];
     [self.currMenuLabel setText:self.currentMenu.menuName];
     [self.currSectionLabel setText:self.currentCourse.courseName];
     // If there are more than one course set the label to each of the two courses to the left and right
@@ -294,9 +294,9 @@
 {
     if (self.user.userURI) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
                          forHTTPHeaderField:@"Authorization"];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         NSString *isPositive;
         if (recommendation.isRecommendPositive.boolValue){
             isPositive = @"True";

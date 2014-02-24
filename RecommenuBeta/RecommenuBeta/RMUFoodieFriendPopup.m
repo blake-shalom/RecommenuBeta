@@ -71,7 +71,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"TOUCHED FRIEND AT INDEX: %@", indexPath);
     NSArray *friendArray;
     if (indexPath.section)
         friendArray = self.dislikeArray;
@@ -80,9 +79,18 @@
 
     NSDictionary *selectedFriend = friendArray[indexPath.row];
     NSString *name = [NSString stringWithFormat:(@"%@ %@"), [selectedFriend objectForKey:@"first_name"], [selectedFriend objectForKey:@"last_name"]];
-    [self.delegate presentFriendSegueWithRMUUsername:[selectedFriend objectForKey:@"username"]
-                                            withName:name
-                                      withFacebookID:[selectedFriend objectForKey:@"facebook_id"]];
+    if (self.state == popupStateFriendState) {
+        [self.delegate presentFriendSegueWithRMUUsername:[selectedFriend objectForKey:@"username"]
+                                                withName:name
+                                          withFacebookID:[selectedFriend objectForKey:@"facebook_id"]];
+    }
+    else {
+        NSString *userID = [NSString stringWithFormat:(@"%@"),[selectedFriend objectForKey:@"recommenu_id"]];
+        [self.delegate presentFoodieSegueWithRMUUsername:[selectedFriend objectForKey:@"username"]
+                                                withName:name
+                                          withFacebookID:[selectedFriend objectForKey:@"facebook_id"]
+                                         withRecommenuID:userID];
+    }
 }
 
 /*
@@ -131,9 +139,9 @@
         // Foodie popup, eiuther load profile or standard foodie pic
         case popupStateFoodieState: {
             //TODO check for facebookID
-            NSString *fbID = [selectedFriend objectForKey:@"facebook_id"];
+            NSString *fbID = [NSString stringWithFormat:(@"%@"),[selectedFriend objectForKey:@"facebook_id"]];
             if (![fbID isEqualToString:@""]) {
-                FBProfilePictureView *profileView = [[FBProfilePictureView alloc]initWithProfileID:friendArray[indexPath.row] pictureCropping:FBProfilePictureCroppingSquare];
+                FBProfilePictureView *profileView = [[FBProfilePictureView alloc]initWithProfileID:[selectedFriend objectForKey:@"facebook_id"] pictureCropping:FBProfilePictureCroppingSquare];
                 [profileView setFrame:friendCell.friendImage.frame];
                 [friendCell addSubview:profileView];
             }
