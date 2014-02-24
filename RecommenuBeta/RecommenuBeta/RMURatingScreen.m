@@ -138,6 +138,20 @@
 #pragma mark - interactivity
 
 /*
+ *  Pops up the navigation stack to the home screen
+ */
+
+- (IBAction)goToHomeScreen:(id)sender
+{
+    if (self.navigationController)
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    else
+        [self performSegueWithIdentifier:@"ratingToHome"
+                                  sender:self];
+}
+
+
+/*
  *  Views other avalable menus at the restaurant
  */
 
@@ -280,6 +294,8 @@
 {
     if (self.user.userURI) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                         forHTTPHeaderField:@"Authorization"];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         NSString *isPositive;
         if (recommendation.isRecommendPositive.boolValue){
@@ -288,8 +304,6 @@
         else {
             isPositive = @"False";
         }
-        [manager.requestSerializer setValue:@"recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
-                         forHTTPHeaderField:@"Authorization: ApiKey"];
         [manager POST:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/create_rating/")]
            parameters:@{@"rating":
                             @{ @"foursquare_entry_id": recommendation.entreeFoursquareID,
@@ -305,7 +319,7 @@
                   NSLog(@"SUCCESS POSTING RATING: %@", responseObject);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  // Failed. Log the user
+                  // Failed. fail silently and it will show up on the
                   NSLog(@"error: %@ with response string: %@", error, operation.responseString);
               }];
     }

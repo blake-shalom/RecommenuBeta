@@ -157,6 +157,8 @@
                                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                         NSLog(@"RESPONSE STRING: %@", operation.responseString);
                                         NSLog(@"ERROR: %@", error);
+                                        RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+                                        [delegate showMessage:@"Please try again later!" withTitle:@"Error signing up foodie!"];
                                     }];
 
 }

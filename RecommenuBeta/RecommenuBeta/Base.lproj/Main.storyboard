@@ -4,6 +4,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="z4d-g8-ZF2">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="rBT-An-IaM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1QI-9u-sAB"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="37H-Y3-8ev">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WW4-31-mjr" kind="relationship" relationship="rootViewController" id="NVk-YF-ssQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZD-yh-J78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="768"/>
+        </scene>
         <!--Locate Screen - Locate-->
         <scene sceneID="SAd-a5-2EC">
             <objects>
@@ -54,7 +71,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="confirmRestaurant:" destination="WW4-31-mjr" eventType="touchUpInside" id="jwp-mr-IHz"/>
-                                                    <segue destination="fSl-jZ-xSI" kind="modal" identifier="locateToMenu" id="bcv-3n-CFm"/>
+                                                    <segue destination="fSl-jZ-xSI" kind="push" identifier="locateToMenu" id="bcv-3n-CFm"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ARE YOU AT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GT8-sA-SKD">
@@ -213,6 +230,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Locate" image="icon_home.png" id="S5W-VX-7wy"/>
+                    <navigationItem key="navigationItem" id="TUz-B2-i8g"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="addressLabel" destination="gEf-ja-MUm" id="ObU-ft-8aY"/>
@@ -230,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnR-78-PjR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="808"/>
+            <point key="canvasLocation" x="1043" y="768"/>
         </scene>
         <!--Menu Screen-->
         <scene sceneID="DR5-mX-nwr">
@@ -261,7 +279,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="59y-sm-h19" kind="modal" identifier="menuToRating" id="qdh-PX-FUs"/>
+                                            <action selector="segueToRatingScreen:" destination="Aa8-Db-N0V" eventType="touchUpInside" id="cqZ-Xm-NIo"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading Menu..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="iv2-go-pNV">
@@ -596,6 +614,8 @@
                         <segue destination="MhZ-4q-dlO" kind="modal" identifier="menuToHome" id="owa-kF-TAU"/>
                         <segue destination="nPB-js-U8b" kind="modal" identifier="menuToOtherProfile" id="plp-gg-ybT"/>
                         <segue destination="nPB-js-U8b" kind="push" identifier="menuToOtherProfilePush" id="hBb-60-GB1"/>
+                        <segue destination="59y-sm-h19" kind="push" identifier="menuToRatingPush" id="ztB-NW-RyU"/>
+                        <segue destination="59y-sm-h19" kind="modal" identifier="menuToRating" id="aNu-Mb-MV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UM4-ek-pxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -731,15 +751,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mvm-ua-KRM" kind="relationship" relationship="viewControllers" id="Gra-xy-ZFH"/>
-                        <segue destination="WW4-31-mjr" kind="relationship" relationship="viewControllers" id="8rg-AY-zZ2"/>
-                        <segue destination="RjX-UA-55b" kind="relationship" relationship="viewControllers" id="ggG-JK-nlS"/>
-                        <segue destination="yVy-QN-2PL" kind="relationship" relationship="viewControllers" id="yWs-Dn-fev"/>
+                        <segue destination="mvm-ua-KRM" kind="relationship" relationship="viewControllers" id="VWG-Zp-lAK"/>
+                        <segue destination="rBT-An-IaM" kind="relationship" relationship="viewControllers" id="XW1-Ig-ziv"/>
+                        <segue destination="RjX-UA-55b" kind="relationship" relationship="viewControllers" id="MC3-dE-71a"/>
+                        <segue destination="yVy-QN-2PL" kind="relationship" relationship="viewControllers" id="85h-CD-bnZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3E-Ji-0XA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132" y="868"/>
+            <point key="canvasLocation" x="-642" y="956"/>
         </scene>
         <!--Search Screen - Search-->
         <scene sceneID="zkj-KK-SV0">
@@ -1189,7 +1209,7 @@
                                             <outlet property="dateLabel" destination="yfA-av-pee" id="Df2-cK-jKv"/>
                                             <outlet property="entreeLabel" destination="x37-ED-xvb" id="k7u-Ig-PqA"/>
                                             <outlet property="likeDislikeImage" destination="zsq-cY-RXV" id="Tat-kX-e3f"/>
-                                            <segue destination="fSl-jZ-xSI" kind="modal" identifier="profileToMenu" id="cec-ZC-rvl"/>
+                                            <segue destination="fSl-jZ-xSI" kind="push" identifier="profileToMenu" id="cec-ZC-rvl"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="67" id="xWS-Zh-ENJ" customClass="RMUProfileFriendCell">
@@ -1359,7 +1379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEg-Sg-XhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979" y="441"/>
+            <point key="canvasLocation" x="1043" y="38"/>
         </scene>
         <!--Rating Screen-->
         <scene sceneID="uOw-Z0-tW0">
@@ -1394,7 +1414,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQO-xT-lNq">
-                                        <rect key="frame" x="15" y="23" width="50" height="30"/>
+                                        <rect key="frame" x="0.0" y="8" width="82" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <state key="normal" title="Home">
@@ -1402,7 +1422,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MhZ-4q-dlO" kind="modal" id="N8u-Ey-9g2"/>
+                                            <action selector="goToHomeScreen:" destination="qtX-wL-D1d" eventType="touchUpInside" id="ngy-5i-KdP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1518,6 +1538,7 @@
                         <outlet property="menuButton" destination="7em-hp-ZC2" id="S29-dc-l7T"/>
                         <outlet property="restNameLabel" destination="LQu-h0-eCW" id="h1g-lC-aED"/>
                         <outlet property="rightSectionLabel" destination="z9f-Nq-hbx" id="NlH-Ik-3Ym"/>
+                        <segue destination="MhZ-4q-dlO" kind="modal" identifier="ratingToHome" id="TTi-zm-ZOE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wo-7E-KAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1537,6 +1558,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tmK-FL-GKk"/>
                     <connections>
                         <segue destination="qtX-wL-D1d" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="BEn-Nf-xmK"/>
                         <segue destination="d2G-sg-s9V" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="1ex-Vq-BDP"/>
@@ -1544,7 +1566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2U-LU-Hzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="-340"/>
+            <point key="canvasLocation" x="1660" y="-286"/>
         </scene>
         <!--Other Profile Screen - Profile-->
         <scene sceneID="V6n-QU-ehg">
@@ -1725,7 +1747,7 @@
                         <outlet property="profileTable" destination="9Tg-TN-w0p" id="AwS-2E-vvf"/>
                         <outlet property="ratingTable" destination="9Tg-TN-w0p" id="hCV-re-e1M"/>
                         <outlet property="topProfileView" destination="Gdo-y8-dNM" id="G58-CK-QCy"/>
-                        <segue destination="fSl-jZ-xSI" kind="modal" identifier="otherProfileToMenu" id="rFS-ke-nUk"/>
+                        <segue destination="fSl-jZ-xSI" kind="push" identifier="otherProfileToMenu" id="rFS-ke-nUk"/>
                         <segue destination="MhZ-4q-dlO" kind="modal" identifier="otherProfileToHome" id="x0D-xH-USx"/>
                     </connections>
                 </viewController>
@@ -1768,9 +1790,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="owa-kF-TAU"/>
-        <segue reference="cec-ZC-rvl"/>
-        <segue reference="bjM-Sb-f3i"/>
-        <segue reference="hBb-60-GB1"/>
+        <segue reference="rFS-ke-nUk"/>
+        <segue reference="plp-gg-ybT"/>
+        <segue reference="ztB-NW-RyU"/>
+        <segue reference="1ex-Vq-BDP"/>
+        <segue reference="TTi-zm-ZOE"/>
     </inferredMetricsTieBreakers>
 </document>

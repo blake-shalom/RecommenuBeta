@@ -43,6 +43,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -124,7 +125,7 @@
                                                   }
                                                   else {
                                                       NSLog(@"error: %@", error);
-                                                      // An error occurred, we need to handle the error
+                                                      // Fail silently
                                                   }
                                               }];
                                               [self refreshFacebookFriendsListWithUser:user andSession:session];
@@ -163,6 +164,8 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"ERROR: %@, WITH RESPONSE STRING: %@",error, operation.responseString);
+             RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+             [delegate showMessage:@"Please excuse this error we will get our team on it! All friends will not show." withTitle:@"Error In Extracting Friends!"];
              self.friendsArray = [[NSArray alloc]init];
              if (!self.isOnPastRatings) {
                  [self.profileTable setHidden:NO];
@@ -177,6 +180,9 @@
     // SET the profile screen name for Google analytics
     self.screenName = @"Profile Screen";
     [super viewDidAppear:animated];
+    RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+    RMUSavedUser *user = [delegate fetchCurrentUser];
+    [self sortUserRatingsIntoRatingsArray:user];
 }
 
 /*
@@ -196,6 +202,7 @@
         [self.currentRatingsLabel setText:[NSString stringWithFormat:@"%i Ratings", user.ratingsForUser.count]];
         
         // Sort ratings into containers
+        [self.ratingsArray removeAllObjects];
         for (RMUSavedRecommendation *recommendation in user.ratingsForUser) {
             BOOL doesRestExist = NO;
             for (NSMutableDictionary *recDict in self.ratingsArray) {
@@ -234,37 +241,28 @@
         // Set some frames
         CGRect profPicFrame = self.profilePic.frame;
         CGRect modifiedProf = CGRectMake(profPicFrame.origin.x, profPicFrame.origin.y, profPicFrame.size.width - 5.0f, profPicFrame.size.height);
-        
-        // CACHED INFO!!!!!!!
-        if (NO) {
-            
-        }
-        else {
-            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
-                                               allowLoginUI:NO
-                                          completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                                              [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                                                  if (!error) {
-                                                      // Success! Include your code to handle the results here
-                                                      NSLog(@"user info: %@", result);
-                                                      [self.nameLabel setText:[result objectForKey:@"name"]];
-                                                      FBProfilePictureView *profileView = [[FBProfilePictureView alloc]initWithProfileID:[result objectForKey:@"id"] pictureCropping:FBProfilePictureCroppingSquare];
-                                                      [profileView setFrame:modifiedProf];
-                                                      [self.profilePicView addSubview:profileView];
-                                                      UIImageView *circleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profile_circle_user"]];
-                                                      [circleView setFrame: profPicFrame];
-                                                      [self.profilePicView addSubview:circleView];
-                                                      [self.hideNameView setHidden:YES];
-                                                  }
-                                                  else {
-                                                      NSLog(@"error: %@", error);
-                                                      // An error occurred, we need to handle the error
-                                                  }
-                                              }];
+        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                           allowLoginUI:NO
+                                      completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                          [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                              if (!error) {
+                                                  // Success! Include your code to handle the results here
+                                                  NSLog(@"user info: %@", result);
+                                                  [self.nameLabel setText:[result objectForKey:@"name"]];
+                                                  FBProfilePictureView *profileView = [[FBProfilePictureView alloc]initWithProfileID:[result objectForKey:@"id"] pictureCropping:FBProfilePictureCroppingSquare];
+                                                  [profileView setFrame:modifiedProf];
+                                                  [self.profilePicView addSubview:profileView];
+                                                  UIImageView *circleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profile_circle_user"]];
+                                                  [circleView setFrame: profPicFrame];
+                                                  [self.profilePicView addSubview:circleView];
+                                                  [self.hideNameView setHidden:YES];
+                                              }
+                                              else {
+                                                  NSLog(@"error: %@", error);
+                                                  // An error occurred, we need to handle the error
+                                              }
                                           }];
-            
-        }
-
+                                      }];
     }
 }
 
@@ -376,22 +374,17 @@
 {
     if ([segue.identifier isEqualToString:@"profileToMenu"]) {
         RMURevealViewController *nextScreen = (RMURevealViewController*) segue.destinationViewController;
+        nextScreen.hidesBottomBarWhenPushed = YES;
         NSIndexPath *indexPath = [self.profileTable indexPathForSelectedRow];
         NSArray *recArray = [self.ratingsArray[indexPath.section] objectForKey:@"recArray"];
         RMUSavedRecommendation *rec = recArray[indexPath.row];
         NSLog(@"%@", rec.restFoursquareID);
         [nextScreen getRestaurantWithFoursquareID:rec.restFoursquareID andName:rec.restaurantName];
     }
-    else if ([segue.identifier isEqualToString:@"profToFoodie"]) {
-        RMUOtherProfileScreen *foodieProf = (RMUOtherProfileScreen*) segue.destinationViewController;
-        foodieProf.isFoodie = YES;
-    }
-    else if ([segue.identifier isEqualToString:@"profToFriend"]) {
-        RMUOtherProfileScreen *foodieProf = (RMUOtherProfileScreen*) segue.destinationViewController;
-        foodieProf.isFoodie = NO;
-    }
     else if ([segue.identifier isEqualToString:@"profileToOtherProfile"]) {
+
         RMUOtherProfileScreen *foodieProf = (RMUOtherProfileScreen*) segue.destinationViewController;
+        foodieProf.hidesBottomBarWhenPushed = YES;
         NSIndexPath *indexPath = [self.profileTable indexPathForSelectedRow];
         NSDictionary *dict = self.friendsArray[indexPath.row];
         foodieProf.isFoodie = NO;
@@ -403,6 +396,7 @@
     else {
         NSLog(@"Unknown ID: %@", segue.identifier);
     }
+    
 }
 
 #pragma mark - interactivity
@@ -427,8 +421,11 @@
              RMUSavedUser *user = [appDelegate fetchCurrentUser];
              [self logFacebookUser:user intoRecommenuWithSession:session];
          }
-         else
+         else {
              NSLog(@"ERRROR: %@", error);
+             RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+             [delegate sessionStateChanged:session state:state error:error];
+         }
      }];
 }
 
@@ -451,8 +448,9 @@
             
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             manager.requestSerializer = [AFJSONRequestSerializer serializer];
-            [manager.requestSerializer setValue:@"recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
-                             forHTTPHeaderField:@"Authorization: ApiKey"];
+            [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                             forHTTPHeaderField:@"Authorization"];
+            // Put first name and last name into DB
             [manager PUT:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/%@"), user.userURI]
               parameters:@{@"first_name": user.firstName,
                            @"last_name" : user.lastName}
@@ -462,6 +460,7 @@
                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                      NSLog(@"ERROR : %@",error);
                  }];
+            // Put users facebook ID into DB
             [manager PUT:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/user_profile/%i/"), user.userID.intValue]
               parameters:@{@"facebook_id": user.facebookID}
                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -493,6 +492,7 @@
              [self fetchFriendsOfUser:user];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             // Fail silently, ask for friends anyways
              [self fetchFriendsOfUser:user];
              NSLog(@"ERROR: %@, with RESPONSE STRING: %@", error, operation.responseString);
          }];

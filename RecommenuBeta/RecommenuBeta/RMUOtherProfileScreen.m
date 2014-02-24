@@ -98,8 +98,8 @@
 - (void)loadRecommendations
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
-                     forHTTPHeaderField:@"Authorization: ApiKey"];
+    [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                     forHTTPHeaderField:@"Authorization"];
 
     [manager GET:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/rating/?user__username=%@"), self.RMUUsername]
       parameters:Nil
@@ -113,6 +113,8 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"ERROR: %@ with response string: %@", error, operation.responseString);
+             RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+             [delegate showMessage:@"Server error will result in no ratings showing up for this profile! We will squash to bug soon!" withTitle:@"Error In Extracting Ratings!"];
          }];
 }
 

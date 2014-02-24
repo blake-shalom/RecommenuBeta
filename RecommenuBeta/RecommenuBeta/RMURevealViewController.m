@@ -72,8 +72,8 @@
     // Use networking to get menu
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     
-    [manager.requestSerializer setValue:@"recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
-                     forHTTPHeaderField:@"Authorization: ApiKey"];
+    [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                     forHTTPHeaderField:@"Authorization"];
 
     // First Query our DB
     [manager GET:[NSString stringWithFormat:(@"http://glacial-ravine-3577.herokuapp.com/api/v1/venue_map/?bad_foursquare_venue_id=%@"), foursquareID]
@@ -95,7 +95,7 @@
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"FAILURE, ask  4[] anyways");
+             NSLog(@"FAILURE, ask  4[] anyways. with ERROR: %@, and response string: %@", error, operation.responseString);
              [self obtainMenuFromFoursquareWithID:foursquareID
                              withNameOfRestaurant:name
                                   withHTTPManager:manager];
@@ -128,6 +128,10 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"error : %@", error);
+             // Error on 4[]'s end prompt the user to go home and try again
+             RMUAppDelegate *appDelegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+             [appDelegate showMessage:@"Sorry there was an error communicating with the server, please try again!"
+                            withTitle:@"Server Error!"];
          }];
     
 }

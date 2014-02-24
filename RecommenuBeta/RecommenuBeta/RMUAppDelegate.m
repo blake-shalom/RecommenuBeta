@@ -179,6 +179,7 @@
                                               [self sessionStateChanged:session state:state error:error];
                                               // This method will be called EACH time the session state changes,
                                               // also for intermediate states and NOT just when the session open
+                                          // Else facebook error, no biggie
                                           else
                                               NSLog(@"FACEBOOK ERROR: %@", error);
                                       }];
@@ -283,7 +284,7 @@
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             // Error establishing user, just silently try again later
+             // Error establishing user, just silently try again next login
              NSLog(@"ERROR: %@", error);
          }];
 }
@@ -303,8 +304,8 @@
     NSString *testFields = [deviceId substringToIndex:10];
     user.userName = testFields;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
-                     forHTTPHeaderField:@"Authorization: ApiKey"];
+    [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                     forHTTPHeaderField:@"Authorization"];
     [manager POST:@"http://glacial-ravine-3577.herokuapp.com/api/v1/create_user/"
       parameters:@{@"device_id": deviceId,
                    @"user" : @{@"email" : testFields,
@@ -375,10 +376,12 @@
     else {
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
-    // Regardless save state
+    // Regardless save state and turn off location services
     NSError *saveError;
     if (![self.managedObjectContext save:&saveError])
         NSLog(@"Error Saving %@", saveError);
+    
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

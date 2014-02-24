@@ -150,6 +150,8 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"ERRROR : %@", error);
+             RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+             [delegate showMessage:@"Please try again!" withTitle:@"Error in searching for a restaurant!"];
              [searchBar setUserInteractionEnabled:YES];
          }];
 }

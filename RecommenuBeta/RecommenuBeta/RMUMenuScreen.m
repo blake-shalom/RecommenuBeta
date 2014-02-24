@@ -156,10 +156,25 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self performSegueWithIdentifier:@"menuToHome" sender:self];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - interactivity
+
+/*
+ *  Executes the correct segue, either modal or push
+ */
+
+- (IBAction)segueToRatingScreen:(id)sender
+{
+    if (self.navigationController)
+        [self performSegueWithIdentifier:@"menuToRatingPush"
+                                  sender:self];
+    else
+        [self performSegueWithIdentifier:@"menuToRating"
+                                  sender:self];
+}
+
 
 /*
  *  Pops up the friend popup
@@ -223,15 +238,15 @@
     [alert show];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
-                     forHTTPHeaderField:@"Authorization: ApiKey"];
+    [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                     forHTTPHeaderField:@"Authorization"];
     [manager POST:@"http://glacial-ravine-3577.herokuapp.com/api/v1/missingmenu/"
        parameters:@{@"foursquare_venue_id": self.currentRestaurant.restFoursquareID}
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSLog(@"Success reporting, response %@", responseObject);
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"Failure reporting with error: %@, response string %@", error, operation.responseString);
+              NSLog(@"Failure reporting with error: %@, response string %@", error, operation.request.allHTTPHeaderFields);
           }];
 }
 
@@ -463,7 +478,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"menuToRating"]){
+    if ([segue.identifier isEqualToString:@"menuToRating"] ||
+        [segue.identifier isEqualToString:@"menuToRatingPush"]){
         RMURevealViewController  *ratingScreen = (RMURevealViewController*)segue.destinationViewController;
         ratingScreen.currentRestaurant = self.currentRestaurant;
     }

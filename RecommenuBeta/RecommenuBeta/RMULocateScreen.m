@@ -197,6 +197,8 @@
             }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+             [delegate showMessage:@"Please try again" withTitle:@"Server Error!"];
              NSLog(@"error: %@", error);
          }];
 }
@@ -237,6 +239,9 @@
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"error: %@", error);
+             RMUAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+             [delegate showMessage:@"Please try again." withTitle:@"Server Error!"];
+
              [self.loadingFallbackView setHidden:YES];
          }];
 }
@@ -292,6 +297,7 @@
     if ([segue.identifier isEqualToString:@"locateToMenu"]) {
         RMURevealViewController *nextScreen = (RMURevealViewController*) segue.destinationViewController;
         [nextScreen getRestaurantWithFoursquareID:self.restID andName:self.restString];
+        nextScreen.hidesBottomBarWhenPushed = YES;
     }
     else {
         NSLog(@"ERROR: UNKNOWN SEGUE %@", segue.identifier);
@@ -418,7 +424,6 @@
 }
 
 
-#pragma mark - UIAlertView Delegate
 
 
 @end
