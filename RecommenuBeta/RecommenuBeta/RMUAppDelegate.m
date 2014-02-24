@@ -461,4 +461,11 @@
 }
 
 
++(BOOL)isInValidLocationWithCoordinate:(CLLocationCoordinate2D)coord
+{
+    BOOL isValidinAustin = (abs(coord.latitude - 30.2669444) <= 0.5 && abs(coord.longitude - -97.7427778 <= 0.5));
+    BOOL isValidinBoston = (abs(coord.latitude - 42.3583333) <= 0.5 && abs(coord.longitude - -71.0602778 <= 0.5));
+    return (isValidinAustin || isValidinBoston);
+}
+
 @end

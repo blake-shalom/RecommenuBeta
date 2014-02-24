@@ -127,21 +127,35 @@
     [self.locationManager stopUpdatingLocation];
     self.location = locations[0];
     CLLocationCoordinate2D coord = self.location.coordinate;
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coord.latitude
-                                                            longitude:coord.longitude
-                                                                 zoom:16];
-    [mapView_ animateToCameraPosition:camera];
-
     
-    // Drop a pin
-    if (!self.hasDroppedPin){
-        self.hasDroppedPin = YES;
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = coord;
-        marker.map = mapView_;
-
+    // Check if the coordinate is in the correct place else POPUP SOME SHIte
+    
+    if ([RMUAppDelegate isInValidLocationWithCoordinate:coord]) {
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coord.latitude
+                                                                longitude:coord.longitude
+                                                                     zoom:16];
+        [mapView_ animateToCameraPosition:camera];
+        
+        
+        // Drop a pin
+        if (!self.hasDroppedPin){
+            self.hasDroppedPin = YES;
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            marker.position = coord;
+            marker.map = mapView_;
+            
+        }
+        [self findRestaurantWithRadius:10.0f];
     }
-    [self findRestaurantWithRadius:10.0f];
+    else {
+        UIAlertView *newAlert = [[UIAlertView alloc] initWithTitle:@"Not available yet!"
+                                                           message:@"Click to request Recommenu in your city and invite your friends to do the same. Once we hit 10,000 requests, we'll launch in your city!"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Request!"
+                                                  otherButtonTitles: nil];
+        newAlert.tag = 1;
+        [newAlert show];
+    }
 }
 
 /*
@@ -159,7 +173,31 @@
     }
 }
 
+#pragma mark - UIAlertViewDelegate
 
+/*
+ *  Click at the button to request to your city
+ */
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag ==1) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [manager.requestSerializer setValue:@"ApiKey recommenumaster:5767146e19ab6cbcf843ad3ab162dc59e428156a"
+                         forHTTPHeaderField:@"Authorization"];
+
+        [manager POST:@"http://glacial-ravine-3577.herokuapp.com/api/v1/requestedcity/"
+           parameters:@{@"longitude": [NSString stringWithFormat:(@"long: %@"),[NSNumber numberWithDouble:self.location.coordinate.longitude]],
+                        @"latitude" : [NSString stringWithFormat:(@"lat: %@"),[NSNumber numberWithDouble:self.location.coordinate.latitude]]}
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSLog(@"SUCCESS POSTING REQUEST CITY WITH RESPONSE : %@", responseObject);
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"ROYAL FAIL BRAH with error : %@ and response string : %@", error, operation.responseString);
+              }];
+    }
+}
 #pragma mark - Networking
 
 /*

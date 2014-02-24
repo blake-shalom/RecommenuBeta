@@ -43,4 +43,6 @@
 - (NSString*)returnDeviceID;
 - (void)showMessage:(NSString *)text withTitle:(NSString *)title;
 
++(BOOL)isInValidLocationWithCoordinate:(CLLocationCoordinate2D)coord;
+
 @end
