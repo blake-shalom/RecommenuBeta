@@ -80,7 +80,8 @@
  *  App doc directory, used in core data methods
  */
 
-- (NSString *)applicationDocumentsDirectory {
+- (NSString *)applicationDocumentsDirectory
+{
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
@@ -128,6 +129,10 @@
         currentUser = (RMUSavedUser*) [NSEntityDescription insertNewObjectForEntityForName:@"RMUSavedUser"
                                                                     inManagedObjectContext:self.managedObjectContext];
         currentUser.hasLoggedIn = NO;
+        currentUser.hasThirdPopup = NO;
+        currentUser.hasSecondPopup = NO;
+        currentUser.hasfirstPopup = NO;
+        currentUser.hasFourthPopup = NO;
         currentUser.dateLogged = [NSDate date];
         currentUser.isFoodie = NO;
         [self obtainUserURIForUser:currentUser];
@@ -459,12 +464,17 @@
     //------ testing only --------------
 }
 
+/*
+ *  Walls off our users to only Austin and Boston, currently disabled for testing by Apple
+ */
 
 +(BOOL)isInValidLocationWithCoordinate:(CLLocationCoordinate2D)coord
 {
-    BOOL isValidinAustin = (abs(coord.latitude - 30.2669444) <= 0.5 && abs(coord.longitude - -97.7427778 <= 0.5));
-    BOOL isValidinBoston = (abs(coord.latitude - 42.3583333) <= 0.5 && abs(coord.longitude - -71.0602778 <= 0.5));
-    return (isValidinAustin || isValidinBoston);
+//    BOOL isValidinAustin = (abs(coord.latitude - 30.2669444) <= 0.5 && abs(coord.longitude - -97.7427778 <= 0.5));
+//    BOOL isValidinBoston = (abs(coord.latitude - 42.3583333) <= 0.5 && abs(coord.longitude - -71.0602778 <= 0.5));
+//    return (isValidinAustin || isValidinBoston);
+    // Returns yes for testing by Apple :)
+    return YES;
 }
 
 @end

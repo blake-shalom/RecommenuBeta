@@ -66,6 +66,16 @@
     // Rating was visited, tell delegate to not notify
     RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
     delegate.shouldDelegateNotifyUser = NO;
+    
+    if (!self.user.hasThirdPopup) {
+        [delegate showMessage:@"Click the thumbs up to recommend the dish you like, or thumbs down for a dish you didn't enjoy. Then return home."
+                    withTitle:@"Recommend Dishes"];
+        self.user.hasThirdPopup = [NSNumber numberWithBool:YES];
+        NSError *saveError;
+        if (![delegate.managedObjectContext save:&saveError])
+            NSLog(@"Error Saving %@", saveError);
+
+    }
 }
 
 

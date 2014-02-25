@@ -72,6 +72,21 @@
     
     [self.emptyView setBackgroundColor:[UIColor RMUSelectGrayColor]];
     
+    if (!user.hasfirstPopup) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Welcome To Recommenu!!"
+                                                           message:@"Recommend your favorite dishes around town to get started."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Okay"
+                                                 otherButtonTitles:@"Skip", nil];
+        alertView.tag = 2;
+        [alertView show];
+        user.hasfirstPopup = [NSNumber numberWithBool:YES];
+        NSError *saveError;
+        if (![delegate.managedObjectContext save:&saveError])
+            NSLog(@"Error Saving %@", saveError);
+
+    }
+    
     if (user.isFoodie)
         [self.foodieImage setHidden:NO];
     else
@@ -558,6 +573,13 @@
     }
 }
 
+#pragma mark - Alert view delegate
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 2 && buttonIndex == 0) {
+        [self.tabBarController setSelectedIndex:2];
+    }
+}
 
 @end

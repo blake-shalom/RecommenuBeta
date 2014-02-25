@@ -118,12 +118,23 @@
         [self.leftSectionLabel setText:@""];
         [self.rightSectionLabel setText:@""];
     }
+    RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+    RMUSavedUser *user = [delegate fetchCurrentUser];
     if (self.currentRestaurant.menus.count < 1)
         [self.missingMenuView setHidden:NO];
+    else {
+        if (!user.hasSecondPopup) {
+            [delegate showMessage:@"On the menu you can see what the crowd, your friends and food Tastemakers think about every dish on the menu. Click the rate button to proceed to give recommendations"
+                        withTitle:@"Proceed to Rate!"];
+            user.hasSecondPopup = [NSNumber numberWithBool:YES];
+            NSError *saveError;
+            if (![delegate.managedObjectContext save:&saveError])
+                NSLog(@"Error Saving %@", saveError);
+        }
+    }
     [self.carousel reloadData];
     
     // Menu visited, set notifications
-    RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
     if (self.currentRestaurant.menus.count > 0) {
         delegate.savedRestaurant = self.currentRestaurant;
         delegate.vc = self;
@@ -159,7 +170,8 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (alertView.tag == 3)
+        [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - interactivity
@@ -237,7 +249,7 @@
 - (IBAction)reportMenu:(id)sender
 {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu Reported!" message:@"Thanks for reporting this menu!" delegate:self cancelButtonTitle:@"Return Home" otherButtonTitles:nil];
-    
+    alert.tag = 3;
     [alert show];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];

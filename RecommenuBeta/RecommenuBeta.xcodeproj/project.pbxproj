@@ -75,7 +75,6 @@
 		9D419C0A1854E1640097C6CA /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D419C011854E1640097C6CA /* AFURLSessionManager.m */; };
 		9D4335B018ADD6BA005D9B4F /* RMUFoodieFriendPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4335AF18ADD6BA005D9B4F /* RMUFoodieFriendPopup.m */; };
 		9D5A3C6A18A4A66100A99B32 /* RMUProfileFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A3C6918A4A66100A99B32 /* RMUProfileFriendCell.m */; };
-		9D635CAB18B3DE4F00301910 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D635CAA18B3DE4F00301910 /* Reachability.m */; };
 		9D635CAE18B912E300301910 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D635CAD18B912E300301910 /* GoogleMaps.framework */; };
 		9D635CB018B9152100301910 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D635CAF18B9152100301910 /* GoogleMaps.bundle */; };
 		9D635CB218B915CD00301910 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D635CB118B915CD00301910 /* AVFoundation.framework */; };
@@ -156,8 +155,6 @@
 		9DC2C4D4186FF9B7001BF7DA /* RMURatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2C4D3186FF9B7001BF7DA /* RMURatingCell.m */; };
 		9DC2C4D7186FFA99001BF7DA /* RMURatingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC2C4D6186FFA99001BF7DA /* RMURatingScreen.m */; };
 		9DCB43F718822AEE006660B7 /* icon_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DCB43F618822AEE006660B7 /* icon_profile@2x.png */; };
-		9DF155DE1841C30E00222403 /* MapBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF155DD1841C30E00222403 /* MapBox.framework */; };
-		9DF155E01841C42900222403 /* MapBox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9DF155DF1841C42900222403 /* MapBox.bundle */; };
 		9DF1ABE418370702006DF0B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF1ABE318370702006DF0B3 /* Foundation.framework */; };
 		9DF1ABE618370702006DF0B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF1ABE518370702006DF0B3 /* CoreGraphics.framework */; };
 		9DF1ABE818370702006DF0B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF1ABE718370702006DF0B3 /* UIKit.framework */; };
@@ -238,6 +235,7 @@
 		9D1DA87718BC3A8500D2A35A /* top_bar_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_bar_grey@2x.png"; sourceTree = "<group>"; };
 		9D1DA87818BC3A8500D2A35A /* x_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_close.png; sourceTree = "<group>"; };
 		9D1DA87918BC3A8500D2A35A /* x_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_close@2x.png"; sourceTree = "<group>"; };
+		9D1DA87E18BC582200D2A35A /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		9D2759EA1860A53E003BF004 /* ellipse_select_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ellipse_select_@2x.png"; sourceTree = "<group>"; };
 		9D2759EB1860A53E003BF004 /* ellipse_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ellipse_select.png; sourceTree = "<group>"; };
 		9D2759EC1860A53E003BF004 /* ellipse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ellipse.png; sourceTree = "<group>"; };
@@ -315,8 +313,6 @@
 		9D5A3C6818A4A66100A99B32 /* RMUProfileFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUProfileFriendCell.h; sourceTree = "<group>"; };
 		9D5A3C6918A4A66100A99B32 /* RMUProfileFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUProfileFriendCell.m; sourceTree = "<group>"; };
 		9D5A3C6B18A57FB900A99B32 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
-		9D635CA918B3DE4F00301910 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		9D635CAA18B3DE4F00301910 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		9D635CAD18B912E300301910 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../OpenSource/GoogleMaps-iOS-1.7.0/GoogleMaps.framework"; sourceTree = "<group>"; };
 		9D635CAF18B9152100301910 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		9D635CB118B915CD00301910 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -415,8 +411,6 @@
 		9DC2C4D5186FFA99001BF7DA /* RMURatingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMURatingScreen.h; sourceTree = "<group>"; };
 		9DC2C4D6186FFA99001BF7DA /* RMURatingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMURatingScreen.m; sourceTree = "<group>"; };
 		9DCB43F618822AEE006660B7 /* icon_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@2x.png"; sourceTree = "<group>"; };
-		9DF155DD1841C30E00222403 /* MapBox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapBox.framework; sourceTree = "<group>"; };
-		9DF155DF1841C42900222403 /* MapBox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MapBox.bundle; sourceTree = "<group>"; };
 		9DF1ABE018370702006DF0B3 /* RecommenuBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommenuBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF1ABE318370702006DF0B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DF1ABE518370702006DF0B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -494,7 +488,6 @@
 				9D635CAE18B912E300301910 /* GoogleMaps.framework in Frameworks */,
 				9D6B9449189804B700492335 /* libz.dylib in Frameworks */,
 				9DF1ACD218371723006DF0B3 /* MobileCoreServices.framework in Frameworks */,
-				9DF155DE1841C30E00222403 /* MapBox.framework in Frameworks */,
 				9DF1AC2718370B7F006DF0B3 /* SystemConfiguration.framework in Frameworks */,
 				9DF1AC2518370B55006DF0B3 /* AdSupport.framework in Frameworks */,
 				9DF1AC2318370B4A006DF0B3 /* Accounts.framework in Frameworks */,
@@ -731,15 +724,6 @@
 			name = "RMU Table Cells";
 			sourceTree = "<group>";
 		};
-		9D635CAC18B3DE5400301910 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				9D635CA918B3DE4F00301910 /* Reachability.h */,
-				9D635CAA18B3DE4F00301910 /* Reachability.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
 		9D6B9447189802BD00492335 /* Google Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,8 +824,6 @@
 				9D6B9448189804B700492335 /* libz.dylib */,
 				9D6B9447189802BD00492335 /* Google Analytics */,
 				9D419BEE1854E1640097C6CA /* AFNetworking */,
-				9DF155DF1841C42900222403 /* MapBox.bundle */,
-				9DF155DD1841C30E00222403 /* MapBox.framework */,
 				9DF1ACD118371723006DF0B3 /* MobileCoreServices.framework */,
 				9DF1ACCD183715A5006DF0B3 /* FBUserSettingsViewResources.bundle */,
 				9DF1ACCB1837158F006DF0B3 /* FacebookSDK.framework */,
@@ -867,7 +849,6 @@
 				9DF1ABF218370702006DF0B3 /* RMUAppDelegate.h */,
 				9DF1ABF318370702006DF0B3 /* RMUAppDelegate.m */,
 				9DB9C285186D15F8003CD478 /* Reveal View Controller */,
-				9D635CAC18B3DE5400301910 /* Reachability */,
 				9D275A16186206A3003BF004 /* iCarousel */,
 				9D7736EE18562BFB00A84E14 /* Objects */,
 				9D7736EC18562BDE00A84E14 /* Views */,
@@ -1026,7 +1007,6 @@
 				9D419BBD1845E6220097C6CA /* icon_search_select.png in Resources */,
 				9D1C2786189C864D007A3E4E /* button_x@2x.png in Resources */,
 				9DC086F4188B677E005949D3 /* icon_menu.png in Resources */,
-				9DF155E01841C42900222403 /* MapBox.bundle in Resources */,
 				9D9F6F6118BB5F0800984A8E /* foodie_overlay.png in Resources */,
 				9D419BB41845E6220097C6CA /* icon_home_profile.png in Resources */,
 				9D9F6F2518BB54B400984A8E /* logo.png in Resources */,
@@ -1188,7 +1168,6 @@
 				9DC086E9188AF01D005949D3 /* RMUSearchCell.m in Sources */,
 				9D419BDB18493DDC0097C6CA /* RMUSettingsScreen.m in Sources */,
 				9D419C091854E1640097C6CA /* AFURLResponseSerialization.m in Sources */,
-				9D635CAB18B3DE4F00301910 /* Reachability.m in Sources */,
 				9D419BE4184EE1B40097C6CA /* UIColor+RMUColors.m in Sources */,
 				9D7736F41857A59200A84E14 /* RMUMeal.m in Sources */,
 				9DB9C27F186A03A5003CD478 /* RMUMenuTable.m in Sources */,
@@ -1357,7 +1336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Blake Ellingham (K32XSJCV9L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Blake Ellingham (K32XSJCV9L)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1458,12 +1437,13 @@
 			isa = XCVersionGroup;
 			children = (
 				9D5A3C6B18A57FB900A99B32 /* Model 5.xcdatamodel */,
+				9D1DA87E18BC582200D2A35A /* Model 6.xcdatamodel */,
 				9D1C2787189D7ABD007A3E4E /* Model 4.xcdatamodel */,
 				9DF800C7187F974B000A08BA /* Model 2.xcdatamodel */,
 				9DF800DC18806368000A08BA /* Model 3.xcdatamodel */,
 				9DF8008F1875D72F000A08BA /* Model.xcdatamodel */,
 			);
-			currentVersion = 9D5A3C6B18A57FB900A99B32 /* Model 5.xcdatamodel */;
+			currentVersion = 9D1DA87E18BC582200D2A35A /* Model 6.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -14,6 +14,10 @@
 
 @dynamic userID;
 @dynamic hasLoggedIn;
+@dynamic hasfirstPopup;
+@dynamic hasFourthPopup;
+@dynamic hasSecondPopup;
+@dynamic hasThirdPopup;
 @dynamic userURI;
 @dynamic firstName;
 @dynamic lastName;

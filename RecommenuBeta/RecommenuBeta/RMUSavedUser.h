@@ -15,6 +15,10 @@
 
 @interface RMUSavedUser : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * hasfirstPopup;
+@property (nonatomic, retain) NSNumber * hasSecondPopup;
+@property (nonatomic, retain) NSNumber * hasThirdPopup;
+@property (nonatomic, retain) NSNumber * hasFourthPopup;
 @property (nonatomic, retain) NSNumber * hasLoggedIn;
 @property (nonatomic, retain) NSNumber * userID;
 @property (nonatomic, retain) NSString * userURI;

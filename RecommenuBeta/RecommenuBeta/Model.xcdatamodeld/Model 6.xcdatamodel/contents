@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="1.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RMUSavedRecommendation" representedClassName="RMUSavedRecommendation" syncable="YES">
+        <attribute name="entreeDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entreeFoursquareID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entreeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isRecommendPositive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="restaurantName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="restFoursquareID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeRated" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="userForRecommedation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RMUSavedUser" inverseName="ratingsForUser" inverseEntity="RMUSavedUser" syncable="YES"/>
+    </entity>
+    <entity name="RMUSavedUser" representedClassName="RMUSavedUser" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateLogged" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebookID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foodieID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasfirstPopup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasFourthPopup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasLoggedIn" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasSecondPopup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasThirdPopup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isFoodie" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userURI" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ratingsForUser" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RMUSavedRecommendation" inverseName="userForRecommedation" inverseEntity="RMUSavedRecommendation" syncable="YES"/>
+        <relationship name="savedPhotoForUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RMUSavedUserPhoto" inverseName="userForSavedPhoto" inverseEntity="RMUSavedUserPhoto" syncable="YES"/>
+    </entity>
+    <entity name="RMUSavedUserPhoto" representedClassName="RMUSavedUserPhoto" syncable="YES">
+        <attribute name="userPhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="userForSavedPhoto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RMUSavedUser" inverseName="savedPhotoForUser" inverseEntity="RMUSavedUser" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RMUSavedRecommendation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="RMUSavedUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="RMUSavedUserPhoto" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

@@ -11,6 +11,7 @@
 #import "RMUSearchCell.h"
 #import "RMURevealViewController.h"
 #import "GAITrackedViewController.h"
+#import "RMUSavedUser.h"
 
 @interface RMUSearchScreen : GAITrackedViewController
 <UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>

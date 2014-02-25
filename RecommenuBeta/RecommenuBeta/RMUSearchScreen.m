@@ -58,6 +58,7 @@
     
     [self.indicator setHidden:YES];
     [self.indicator stopAnimating];
+    
 	// Do any additional setup after loading the view.
 }
 

@@ -18,7 +18,7 @@
 #import "RMUProfileFriendCell.h"
 
 @interface RMUProfileScreen : GAITrackedViewController
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 - (void)fetchFriendsOfUser:(RMUSavedUser*)user;
 

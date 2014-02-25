@@ -64,6 +64,19 @@
     // hide loading screen
     [self.loadingFallbackView setHidden:YES];
     
+    RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
+    RMUSavedUser *user = [delegate fetchCurrentUser];
+
+    if (!user.hasFourthPopup) {
+        [delegate showMessage:@"The Locate feature finds where you are eating and then shows you the menu to empower you to order something great!"
+                    withTitle:@"Locate Feature"];
+        user.hasFourthPopup = [NSNumber numberWithBool:YES];
+        NSError *saveError;
+        if (![delegate.managedObjectContext save:&saveError])
+            NSLog(@"Error Saving %@", saveError);
+
+    }
+    
     dispatch_async(LOCAL_QUEUE, ^
                    {
                        [self performSelectorOnMainThread:@selector(loadMapElements) withObject:nil waitUntilDone:YES];
@@ -87,10 +100,9 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
                                                             longitude:151.20
                                                                  zoom:8];
-    mapView_ = [GMSMapView mapWithFrame:self.mapFrameView.bounds camera:camera];
+    mapView_ = [GMSMapView mapWithFrame:self.mapFrameView.frame camera:camera];
     [self.view addSubview:mapView_];
     [self.view sendSubviewToBack:mapView_];
-
     
     // Center the view around your location
     self.locationManager = [[CLLocationManager alloc]init];
@@ -130,8 +142,7 @@
     
     // Check if the coordinate is in the correct place else POPUP SOME SHIte
     
-//    if ([RMUAppDelegate isInValidLocationWithCoordinate:coord]) {
-    if (YES) {
+    if ([RMUAppDelegate isInValidLocationWithCoordinate:coord]) {
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coord.latitude
                                                                 longitude:coord.longitude
                                                                      zoom:16];
