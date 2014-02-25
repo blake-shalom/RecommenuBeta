@@ -15,6 +15,7 @@
 #import "RMUAppDelegate.h"
 #import "AFNetworking.h"
 #import "RMUProfileRatingCell.h"
+#import "RMUBlogViewController.h"
 
 @interface RMUOtherProfileScreen : GAITrackedViewController
 <UITableViewDataSource, UITableViewDelegate>

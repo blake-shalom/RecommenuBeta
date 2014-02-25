@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadindicator;
 @property (weak, nonatomic) IBOutlet UITableView *ratingTable;
 
+
 @property (strong,nonatomic) NSMutableArray *ratingsArray;
 
 @end
@@ -278,6 +279,10 @@
         NSString *restaurant = [recArray [indexPath.row] objectForKey:@"restaurant"];
         NSLog(@"4[] ID: %@", foursquareID);
         [nextScreen getRestaurantWithFoursquareID:foursquareID andName:restaurant];
+    }
+    else if ([segue.identifier isEqualToString:@"otherProfileToBlog"]) {
+        RMUBlogViewController *nextScreen = (RMUBlogViewController*) segue.destinationViewController;
+        nextScreen.blogURLString = self.blogButton.titleLabel.text;
     }
 }
 

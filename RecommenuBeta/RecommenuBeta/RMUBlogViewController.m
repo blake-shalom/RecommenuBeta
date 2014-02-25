@@ -10,6 +10,10 @@
 
 @interface RMUBlogViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *blogName;
+@property (weak, nonatomic) IBOutlet UILabel *blogURL;
+@property (weak, nonatomic) IBOutlet UIWebView *blogWebView;
+
 @end
 
 @implementation RMUBlogViewController
@@ -26,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadBlogURL:self.blogURLString];
 	// Do any additional setup after loading the view.
 }
 
@@ -33,6 +38,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadBlogURL:(NSString*)blogURL
+{
+    NSLog(@"%@ bloggy bloggers", blogURL);
+    NSString *fullURL =[NSString stringWithFormat:(@"http://%@"),blogURL];
+    NSURL *url = [NSURL URLWithString:fullURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.blogWebView loadRequest:request];
+    [self.blogName setText:blogURL];
+}
+
+
+- (IBAction)dismissController:(id)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                
+                             }];
 }
 
 @end

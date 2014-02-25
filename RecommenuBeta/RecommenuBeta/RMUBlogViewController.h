@@ -10,4 +10,8 @@
 
 @interface RMUBlogViewController : UIViewController
 
+@property NSString *blogURLString;
+
+//- (void)loadBlogURL:(NSString*)blogURL;
+
 @end

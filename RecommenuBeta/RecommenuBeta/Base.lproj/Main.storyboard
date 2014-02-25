@@ -1661,6 +1661,7 @@
                                         </state>
                                         <connections>
                                             <action selector="openFoodBlog:" destination="nPB-js-U8b" eventType="touchUpInside" id="UFF-d1-i9z"/>
+                                            <segue destination="UO4-Ya-oTe" kind="modal" identifier="otherProfileToBlog" id="anY-OH-8HI"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foodie_certified.png" translatesAutoresizingMaskIntoConstraints="NO" id="P6k-5W-kbO">
@@ -1755,10 +1756,10 @@
             </objects>
             <point key="canvasLocation" x="1704" y="1405"/>
         </scene>
-        <!--View Controller-->
+        <!--Blog View Controller-->
         <scene sceneID="qKh-ml-Moe">
             <objects>
-                <viewController id="UO4-Ya-oTe" sceneMemberID="viewController">
+                <viewController id="UO4-Ya-oTe" customClass="RMUBlogViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uYg-DB-nqD"/>
                         <viewControllerLayoutGuide type="bottom" id="vWY-t4-3BU"/>
@@ -1767,14 +1768,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-u1-RUN">
-                                <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tIv-1d-kdu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_bar_grey.png" translatesAutoresizingMaskIntoConstraints="NO" id="oaF-EX-ilo">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUo-Lx-Yqx">
+                                        <rect key="frame" x="8" y="11" width="57" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="x_close.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissController:" destination="UO4-Ya-oTe" eventType="touchUpInside" id="vrp-cP-Si0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y9-B5-lhn">
+                                        <rect key="frame" x="60" y="20" width="200" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqz-X4-IbU">
+                                        <rect key="frame" x="53" y="39" width="214" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-u1-RUN">
+                                <rect key="frame" x="0.0" y="61" width="320" height="507"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="blogName" destination="9Y9-B5-lhn" id="nhY-kQ-MBF"/>
+                        <outlet property="blogURL" destination="Cqz-X4-IbU" id="Zmy-ac-bVQ"/>
+                        <outlet property="blogWebView" destination="dgk-u1-RUN" id="5Y3-lN-u26"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCI-p8-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1805,9 +1845,11 @@
         <image name="popup_ratingbreakdown.png" width="266" height="301"/>
         <image name="thumbs_up_profile.png" width="39" height="39"/>
         <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar_grey.png" width="320" height="69"/>
         <image name="top_section.png" width="320" height="119"/>
         <image name="top_section_2.png" width="320" height="86"/>
         <image name="user_default_profile.png" width="69" height="69"/>
+        <image name="x_close.png" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1815,10 +1857,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bcv-3n-CFm"/>
-        <segue reference="TTi-zm-ZOE"/>
+        <segue reference="x0D-xH-USx"/>
+        <segue reference="plp-gg-ybT"/>
+        <segue reference="rFS-ke-nUk"/>
         <segue reference="ztB-NW-RyU"/>
         <segue reference="1ex-Vq-BDP"/>
-        <segue reference="plp-gg-ybT"/>
     </inferredMetricsTieBreakers>
 </document>
