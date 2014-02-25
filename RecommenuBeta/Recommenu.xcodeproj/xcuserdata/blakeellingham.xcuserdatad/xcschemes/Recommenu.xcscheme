@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9DF1ABDF18370702006DF0B3"
                BuildableName = "RecommenuBeta.app"
-               BlueprintName = "RecommenuBeta"
-               ReferencedContainer = "container:RecommenuBeta.xcodeproj">
+               BlueprintName = "Recommenu"
+               ReferencedContainer = "container:Recommenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9DF1AC0018370702006DF0B3"
                BuildableName = "RecommenuBetaTests.xctest"
-               BlueprintName = "RecommenuBetaTests"
-               ReferencedContainer = "container:RecommenuBeta.xcodeproj">
+               BlueprintName = "RecommenuTests"
+               ReferencedContainer = "container:Recommenu.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF1ABDF18370702006DF0B3"
             BuildableName = "RecommenuBeta.app"
-            BlueprintName = "RecommenuBeta"
-            ReferencedContainer = "container:RecommenuBeta.xcodeproj">
+            BlueprintName = "Recommenu"
+            ReferencedContainer = "container:Recommenu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF1ABDF18370702006DF0B3"
             BuildableName = "RecommenuBeta.app"
-            BlueprintName = "RecommenuBeta"
-            ReferencedContainer = "container:RecommenuBeta.xcodeproj">
+            BlueprintName = "Recommenu"
+            ReferencedContainer = "container:Recommenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF1ABDF18370702006DF0B3"
             BuildableName = "RecommenuBeta.app"
-            BlueprintName = "RecommenuBeta"
-            ReferencedContainer = "container:RecommenuBeta.xcodeproj">
+            BlueprintName = "Recommenu"
+            ReferencedContainer = "container:Recommenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

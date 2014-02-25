@@ -22,6 +22,7 @@
 		9D1DA87B18BC3A8500D2A35A /* top_bar_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D1DA87718BC3A8500D2A35A /* top_bar_grey@2x.png */; };
 		9D1DA87C18BC3A8500D2A35A /* x_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D1DA87818BC3A8500D2A35A /* x_close.png */; };
 		9D1DA87D18BC3A8500D2A35A /* x_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D1DA87918BC3A8500D2A35A /* x_close@2x.png */; };
+		9D1DA88118BD217600D2A35A /* RMUUserTermsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1DA88018BD217600D2A35A /* RMUUserTermsScreen.m */; };
 		9D2759FE1860A53E003BF004 /* ellipse_select_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2759EA1860A53E003BF004 /* ellipse_select_@2x.png */; };
 		9D2759FF1860A53E003BF004 /* ellipse_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2759EB1860A53E003BF004 /* ellipse_select.png */; };
 		9D275A001860A53E003BF004 /* ellipse.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2759EC1860A53E003BF004 /* ellipse.png */; };
@@ -236,6 +237,8 @@
 		9D1DA87818BC3A8500D2A35A /* x_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_close.png; sourceTree = "<group>"; };
 		9D1DA87918BC3A8500D2A35A /* x_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_close@2x.png"; sourceTree = "<group>"; };
 		9D1DA87E18BC582200D2A35A /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
+		9D1DA87F18BD217600D2A35A /* RMUUserTermsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUUserTermsScreen.h; sourceTree = "<group>"; };
+		9D1DA88018BD217600D2A35A /* RMUUserTermsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUUserTermsScreen.m; sourceTree = "<group>"; };
 		9D2759EA1860A53E003BF004 /* ellipse_select_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ellipse_select_@2x.png"; sourceTree = "<group>"; };
 		9D2759EB1860A53E003BF004 /* ellipse_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ellipse_select.png; sourceTree = "<group>"; };
 		9D2759EC1860A53E003BF004 /* ellipse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ellipse.png; sourceTree = "<group>"; };
@@ -411,21 +414,21 @@
 		9DC2C4D5186FFA99001BF7DA /* RMURatingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMURatingScreen.h; sourceTree = "<group>"; };
 		9DC2C4D6186FFA99001BF7DA /* RMURatingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMURatingScreen.m; sourceTree = "<group>"; };
 		9DCB43F618822AEE006660B7 /* icon_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_profile@2x.png"; sourceTree = "<group>"; };
-		9DF1ABE018370702006DF0B3 /* RecommenuBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommenuBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF1ABE018370702006DF0B3 /* Recommenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recommenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF1ABE318370702006DF0B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9DF1ABE518370702006DF0B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9DF1ABE718370702006DF0B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		9DF1ABEB18370702006DF0B3 /* RecommenuBeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecommenuBeta-Info.plist"; sourceTree = "<group>"; };
+		9DF1ABEB18370702006DF0B3 /* Recommenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Recommenu-Info.plist"; sourceTree = "<group>"; };
 		9DF1ABED18370702006DF0B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DF1ABEF18370702006DF0B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9DF1ABF118370702006DF0B3 /* RecommenuBeta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecommenuBeta-Prefix.pch"; sourceTree = "<group>"; };
+		9DF1ABF118370702006DF0B3 /* Recommenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recommenu-Prefix.pch"; sourceTree = "<group>"; };
 		9DF1ABF218370702006DF0B3 /* RMUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMUAppDelegate.h; sourceTree = "<group>"; };
 		9DF1ABF318370702006DF0B3 /* RMUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMUAppDelegate.m; sourceTree = "<group>"; };
 		9DF1ABF618370702006DF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DF1ABFB18370702006DF0B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9DF1AC0118370702006DF0B3 /* RecommenuBetaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecommenuBetaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF1AC0118370702006DF0B3 /* RecommenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecommenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF1AC0218370702006DF0B3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9DF1AC0A18370702006DF0B3 /* RecommenuBetaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecommenuBetaTests-Info.plist"; sourceTree = "<group>"; };
+		9DF1AC0A18370702006DF0B3 /* RecommenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecommenuTests-Info.plist"; sourceTree = "<group>"; };
 		9DF1AC0C18370702006DF0B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9DF1AC0E18370702006DF0B3 /* RecommenuBetaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommenuBetaTests.m; sourceTree = "<group>"; };
 		9DF1AC1818370B09006DF0B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -673,6 +676,8 @@
 				9DC2C4D6186FFA99001BF7DA /* RMURatingScreen.m */,
 				9D1DA87318BBE8B200D2A35A /* RMUBlogViewController.h */,
 				9D1DA87418BBE8B200D2A35A /* RMUBlogViewController.m */,
+				9D1DA87F18BD217600D2A35A /* RMUUserTermsScreen.h */,
+				9D1DA88018BD217600D2A35A /* RMUUserTermsScreen.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -792,8 +797,8 @@
 		9DF1ABD718370702006DF0B3 = {
 			isa = PBXGroup;
 			children = (
-				9DF1ABE918370702006DF0B3 /* RecommenuBeta */,
-				9DF1AC0818370702006DF0B3 /* RecommenuBetaTests */,
+				9DF1ABE918370702006DF0B3 /* Recommenu */,
+				9DF1AC0818370702006DF0B3 /* RecommenuTests */,
 				9DF1ABE218370702006DF0B3 /* Frameworks */,
 				9DF1ABE118370702006DF0B3 /* Products */,
 			);
@@ -802,8 +807,8 @@
 		9DF1ABE118370702006DF0B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DF1ABE018370702006DF0B3 /* RecommenuBeta.app */,
-				9DF1AC0118370702006DF0B3 /* RecommenuBetaTests.xctest */,
+				9DF1ABE018370702006DF0B3 /* Recommenu.app */,
+				9DF1AC0118370702006DF0B3 /* RecommenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -843,7 +848,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9DF1ABE918370702006DF0B3 /* RecommenuBeta */ = {
+		9DF1ABE918370702006DF0B3 /* Recommenu */ = {
 			isa = PBXGroup;
 			children = (
 				9DF1ABF218370702006DF0B3 /* RMUAppDelegate.h */,
@@ -859,6 +864,7 @@
 				9DF1ABFB18370702006DF0B3 /* Images.xcassets */,
 				9DF1ABEA18370702006DF0B3 /* Supporting Files */,
 			);
+			name = Recommenu;
 			path = RecommenuBeta;
 			sourceTree = "<group>";
 		};
@@ -866,27 +872,28 @@
 			isa = PBXGroup;
 			children = (
 				9D419B911845E5EA0097C6CA /* Image Assets */,
-				9DF1ABEB18370702006DF0B3 /* RecommenuBeta-Info.plist */,
+				9DF1ABEB18370702006DF0B3 /* Recommenu-Info.plist */,
 				9DF1ABEC18370702006DF0B3 /* InfoPlist.strings */,
 				9DF1ABEF18370702006DF0B3 /* main.m */,
-				9DF1ABF118370702006DF0B3 /* RecommenuBeta-Prefix.pch */,
+				9DF1ABF118370702006DF0B3 /* Recommenu-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9DF1AC0818370702006DF0B3 /* RecommenuBetaTests */ = {
+		9DF1AC0818370702006DF0B3 /* RecommenuTests */ = {
 			isa = PBXGroup;
 			children = (
 				9DF1AC0E18370702006DF0B3 /* RecommenuBetaTests.m */,
 				9DF1AC0918370702006DF0B3 /* Supporting Files */,
 			);
+			name = RecommenuTests;
 			path = RecommenuBetaTests;
 			sourceTree = "<group>";
 		};
 		9DF1AC0918370702006DF0B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9DF1AC0A18370702006DF0B3 /* RecommenuBetaTests-Info.plist */,
+				9DF1AC0A18370702006DF0B3 /* RecommenuTests-Info.plist */,
 				9DF1AC0B18370702006DF0B3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -919,9 +926,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9DF1ABDF18370702006DF0B3 /* RecommenuBeta */ = {
+		9DF1ABDF18370702006DF0B3 /* Recommenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DF1AC1218370702006DF0B3 /* Build configuration list for PBXNativeTarget "RecommenuBeta" */;
+			buildConfigurationList = 9DF1AC1218370702006DF0B3 /* Build configuration list for PBXNativeTarget "Recommenu" */;
 			buildPhases = (
 				9DF1ABDC18370702006DF0B3 /* Sources */,
 				9DF1ABDD18370702006DF0B3 /* Frameworks */,
@@ -931,14 +938,14 @@
 			);
 			dependencies = (
 			);
-			name = RecommenuBeta;
+			name = Recommenu;
 			productName = RecommenuBeta;
-			productReference = 9DF1ABE018370702006DF0B3 /* RecommenuBeta.app */;
+			productReference = 9DF1ABE018370702006DF0B3 /* Recommenu.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9DF1AC0018370702006DF0B3 /* RecommenuBetaTests */ = {
+		9DF1AC0018370702006DF0B3 /* RecommenuTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DF1AC1518370702006DF0B3 /* Build configuration list for PBXNativeTarget "RecommenuBetaTests" */;
+			buildConfigurationList = 9DF1AC1518370702006DF0B3 /* Build configuration list for PBXNativeTarget "RecommenuTests" */;
 			buildPhases = (
 				9DF1ABFD18370702006DF0B3 /* Sources */,
 				9DF1ABFE18370702006DF0B3 /* Frameworks */,
@@ -949,9 +956,9 @@
 			dependencies = (
 				9DF1AC0718370702006DF0B3 /* PBXTargetDependency */,
 			);
-			name = RecommenuBetaTests;
+			name = RecommenuTests;
 			productName = RecommenuBetaTests;
-			productReference = 9DF1AC0118370702006DF0B3 /* RecommenuBetaTests.xctest */;
+			productReference = 9DF1AC0118370702006DF0B3 /* RecommenuTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -972,7 +979,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9DF1ABDB18370702006DF0B3 /* Build configuration list for PBXProject "RecommenuBeta" */;
+			buildConfigurationList = 9DF1ABDB18370702006DF0B3 /* Build configuration list for PBXProject "Recommenu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -985,8 +992,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9DF1ABDF18370702006DF0B3 /* RecommenuBeta */,
-				9DF1AC0018370702006DF0B3 /* RecommenuBetaTests */,
+				9DF1ABDF18370702006DF0B3 /* Recommenu */,
+				9DF1AC0018370702006DF0B3 /* RecommenuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1139,6 +1146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D419C061854E1640097C6CA /* AFSecurityPolicy.m in Sources */,
+				9D1DA88118BD217600D2A35A /* RMUUserTermsScreen.m in Sources */,
 				9D419BEB185454960097C6CA /* RMUAnimationClass.m in Sources */,
 				9D275A1D18625788003BF004 /* RMUMenuScreen.m in Sources */,
 				9D7A0FB318885C320078FF91 /* RMUOtherProfileScreen.m in Sources */,
@@ -1197,7 +1205,7 @@
 /* Begin PBXTargetDependency section */
 		9DF1AC0718370702006DF0B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9DF1ABDF18370702006DF0B3 /* RecommenuBeta */;
+			target = 9DF1ABDF18370702006DF0B3 /* Recommenu */;
 			targetProxy = 9DF1AC0618370702006DF0B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1318,14 +1326,14 @@
 					"/Users/blakeellingham/Documents/OpenSource/GoogleMaps-iOS-1.7.0",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RecommenuBeta/RecommenuBeta-Prefix.pch";
-				INFOPLIST_FILE = "RecommenuBeta/RecommenuBeta-Info.plist";
+				GCC_PREFIX_HEADER = "RecommenuBeta/Recommenu-Prefix.pch";
+				INFOPLIST_FILE = "RecommenuBeta/Recommenu-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/blakeellingham/Documents/Recommenu/RecommenuBeta/RecommenuBeta,
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Recommenu;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1345,14 +1353,14 @@
 					"/Users/blakeellingham/Documents/OpenSource/GoogleMaps-iOS-1.7.0",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RecommenuBeta/RecommenuBeta-Prefix.pch";
-				INFOPLIST_FILE = "RecommenuBeta/RecommenuBeta-Info.plist";
+				GCC_PREFIX_HEADER = "RecommenuBeta/Recommenu-Prefix.pch";
+				INFOPLIST_FILE = "RecommenuBeta/Recommenu-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/blakeellingham/Documents/Recommenu/RecommenuBeta/RecommenuBeta,
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Recommenu;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1374,8 +1382,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "RecommenuBetaTests/RecommenuBetaTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "RecommenuBetaTests/RecommenuTests-Info.plist";
+				PRODUCT_NAME = RecommenuTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1393,8 +1401,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RecommenuBeta/RecommenuBeta-Prefix.pch";
-				INFOPLIST_FILE = "RecommenuBetaTests/RecommenuBetaTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "RecommenuBetaTests/RecommenuTests-Info.plist";
+				PRODUCT_NAME = RecommenuTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1403,7 +1411,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DF1ABDB18370702006DF0B3 /* Build configuration list for PBXProject "RecommenuBeta" */ = {
+		9DF1ABDB18370702006DF0B3 /* Build configuration list for PBXProject "Recommenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DF1AC1018370702006DF0B3 /* Debug */,
@@ -1412,7 +1420,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DF1AC1218370702006DF0B3 /* Build configuration list for PBXNativeTarget "RecommenuBeta" */ = {
+		9DF1AC1218370702006DF0B3 /* Build configuration list for PBXNativeTarget "Recommenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DF1AC1318370702006DF0B3 /* Debug */,
@@ -1421,7 +1429,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DF1AC1518370702006DF0B3 /* Build configuration list for PBXNativeTarget "RecommenuBetaTests" */ = {
+		9DF1AC1518370702006DF0B3 /* Build configuration list for PBXNativeTarget "RecommenuTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DF1AC1618370702006DF0B3 /* Debug */,

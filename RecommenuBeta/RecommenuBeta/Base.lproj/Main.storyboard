@@ -763,7 +763,7 @@
                         <segue destination="mvm-ua-KRM" kind="relationship" relationship="viewControllers" id="VWG-Zp-lAK"/>
                         <segue destination="rBT-An-IaM" kind="relationship" relationship="viewControllers" id="XW1-Ig-ziv"/>
                         <segue destination="RjX-UA-55b" kind="relationship" relationship="viewControllers" id="MC3-dE-71a"/>
-                        <segue destination="yVy-QN-2PL" kind="relationship" relationship="viewControllers" id="85h-CD-bnZ"/>
+                        <segue destination="jJv-LX-twN" kind="relationship" relationship="viewControllers" id="bHY-b9-XbW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3E-Ji-0XA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -904,6 +904,23 @@
             </objects>
             <point key="canvasLocation" x="1043" y="1566"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="H5C-nj-8l4">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="jJv-LX-twN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Sjz-tO-W3R"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fKt-aB-Ktz">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yVy-QN-2PL" kind="relationship" relationship="rootViewController" id="U1m-Lo-kGw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kc2-7m-DTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="2330"/>
+        </scene>
         <!--Settings Screen - Settings-->
         <scene sceneID="2F2-LR-3s1">
             <objects>
@@ -930,8 +947,27 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="KdF-Ll-fma">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNm-PQ-5bI">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                            <state key="normal" title="USER TERMS AND CREDITS">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="isq-wD-CIE" kind="push" id="Qx0-TO-ech"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="TRG-3u-oDQ">
-                                    <rect key="frame" x="0.0" y="66" width="320" height="100"/>
+                                    <rect key="frame" x="0.0" y="110" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ARE YOU A TASTEMAKER?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcR-nv-x44">
@@ -963,7 +999,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" id="bWP-ZA-VTi" customClass="RMULocationCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bWP-ZA-VTi" id="yO6-j4-Mgw">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1073,6 +1109,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="icon_settings.png" id="BRo-gf-7KI"/>
+                    <navigationItem key="navigationItem" id="gSl-M4-dpO"/>
                     <connections>
                         <outlet property="confirmSignInButton" destination="dVl-Wn-SYJ" id="FUa-6G-3Jz"/>
                         <outlet property="dismissKeyButton" destination="8CN-dj-eSd" id="f9Z-Tr-h90"/>
@@ -1087,7 +1124,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Es3-I1-QFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="2346"/>
+            <point key="canvasLocation" x="1043" y="2330"/>
+        </scene>
+        <!--User Terms Screen-->
+        <scene sceneID="IgE-Ac-Her">
+            <objects>
+                <viewController id="isq-wD-CIE" customClass="RMUUserTermsScreen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qjo-rh-jF1"/>
+                        <viewControllerLayoutGuide type="bottom" id="mcj-vn-iPT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5XQ-nk-ITL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="av9-kh-Pjr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="pZN-bs-dho">
+                                        <rect key="frame" x="0.0" y="0.0" width="324" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Terms and Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtQ-zl-IhU">
+                                        <rect key="frame" x="67" y="29" width="191" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg7-Sx-QaP">
+                                        <rect key="frame" x="0.0" y="20" width="53" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back_arrow.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="popBackToSettings:" destination="isq-wD-CIE" eventType="touchUpInside" id="Vqg-cb-zga"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="LII-Ri-lQh">
+                                <rect key="frame" x="20" y="99" width="280" height="403"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kqi-dv-BeI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exf-u6-HtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1692" y="2330"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="xQ6-r5-CLH">
@@ -1573,7 +1665,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="80" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-TN-w0p">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="80" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-TN-w0p">
                                 <rect key="frame" x="0.0" y="155" width="320" height="413"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1731,7 +1823,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Tg-TN-w0p" firstAttribute="leading" secondItem="HQ2-99-88F" secondAttribute="leading" id="YjJ-fG-2bQ"/>
-                            <constraint firstItem="jOR-ld-EHo" firstAttribute="top" secondItem="9Tg-TN-w0p" secondAttribute="bottom" constant="-49" id="p6A-Md-0gN"/>
+                            <constraint firstItem="jOR-ld-EHo" firstAttribute="top" secondItem="9Tg-TN-w0p" secondAttribute="bottom" id="p6A-Md-0gN"/>
                             <constraint firstItem="9Tg-TN-w0p" firstAttribute="top" secondItem="O2l-cd-8p1" secondAttribute="bottom" constant="135" id="qra-Mi-gsB"/>
                         </constraints>
                     </view>
@@ -1822,36 +1914,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCI-p8-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707" y="2167"/>
+            <point key="canvasLocation" x="2254" y="2330"/>
         </scene>
     </scenes>
     <resources>
+        <image name="back_arrow.png" width="13" height="22"/>
+        <image name="back_arrow.png" width="13" height="22"/>
         <image name="back_arrow.png" width="13" height="22"/>
         <image name="button_x.png" width="16" height="16"/>
         <image name="dividing_line.png" width="2" height="37"/>
         <image name="facebook_off.png" width="29" height="29"/>
         <image name="filter_bar.png" width="320" height="57"/>
+        <image name="filter_bar.png" width="320" height="57"/>
+        <image name="foodie_certified.png" width="29" height="29"/>
         <image name="foodie_certified.png" width="29" height="29"/>
         <image name="foodie_overlay.png" width="268" height="203"/>
+        <image name="gradient.png" width="320" height="548"/>
+        <image name="gradient.png" width="320" height="548"/>
         <image name="gradient.png" width="320" height="548"/>
         <image name="icon_foodie_activate.png" width="38" height="40"/>
         <image name="icon_home.png" width="31" height="29"/>
         <image name="icon_list.png" width="28" height="21"/>
+        <image name="icon_list.png" width="28" height="21"/>
         <image name="icon_menu.png" width="20" height="20"/>
+        <image name="icon_profile.png" width="31" height="29"/>
         <image name="icon_profile.png" width="31" height="29"/>
         <image name="icon_search.png" width="31" height="29"/>
         <image name="icon_settings.png" width="31" height="29"/>
         <image name="logo.png" width="177" height="30"/>
+        <image name="logo.png" width="177" height="30"/>
         <image name="overlay_card.png" width="265" height="402"/>
         <image name="overlay_crowd.png" width="268" height="123"/>
+        <image name="pattern_fullscreen.png" width="320" height="568"/>
         <image name="pattern_fullscreen.png" width="320" height="568"/>
         <image name="popup_location.png" width="264" height="200"/>
         <image name="popup_ratingbreakdown.png" width="266" height="301"/>
         <image name="thumbs_up_profile.png" width="39" height="39"/>
+        <image name="thumbs_up_profile.png" width="39" height="39"/>
+        <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar.png" width="320" height="69"/>
         <image name="top_bar.png" width="320" height="69"/>
         <image name="top_bar_grey.png" width="320" height="69"/>
         <image name="top_section.png" width="320" height="119"/>
         <image name="top_section_2.png" width="320" height="86"/>
+        <image name="user_default_profile.png" width="69" height="69"/>
         <image name="user_default_profile.png" width="69" height="69"/>
         <image name="x_close.png" width="20" height="20"/>
     </resources>

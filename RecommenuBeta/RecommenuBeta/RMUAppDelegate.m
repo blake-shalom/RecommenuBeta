@@ -104,7 +104,7 @@
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     // Initialize tracker, and suppress that stupid warning.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47533709-1"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47533709-2"];
 #pragma unused(tracker)
 
     // Google maps registration of API key

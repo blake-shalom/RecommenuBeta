@@ -240,15 +240,8 @@
  *  Set Up User elements
  */
 
-- (void)loadUserElements
+- (void)loadFacebookUserElements
 {
-    RMUAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    RMUSavedUser *user = [appDelegate fetchCurrentUser];
-    if (!user.facebookID) {
-        [self.nameLabel setText:@"Anonymous User"];
-        [self.facebookButton setImage:[UIImage imageNamed:@"facebook_off"] forState:UIControlStateNormal];
-    }
-    else {
         [self.facebookButton setImage:[UIImage imageNamed:@"facebook_on"] forState:UIControlStateNormal];
         [self.facebookButton setUserInteractionEnabled:NO];
         [self.hideNameView setHidden:NO];
@@ -256,9 +249,6 @@
         // Set some frames
         CGRect profPicFrame = self.profilePic.frame;
         CGRect modifiedProf = CGRectMake(profPicFrame.origin.x, profPicFrame.origin.y, profPicFrame.size.width - 5.0f, profPicFrame.size.height);
-        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
-                                           allowLoginUI:NO
-                                      completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
                                           [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                                               if (!error) {
                                                   // Success! Include your code to handle the results here
@@ -277,8 +267,6 @@
                                                   // An error occurred, we need to handle the error
                                               }
                                           }];
-                                      }];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -431,10 +419,13 @@
          if (!error){
              // Retrieve the app delegate
              RMUAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+             [self.facebookButton setImage:[UIImage imageNamed:@"facebook_on"] forState:UIControlStateNormal];
+             [self.facebookButton setUserInteractionEnabled:NO];
+             [self.hideNameView setHidden:NO];
              // Call the app delegate's sessionStateChanged:state:error method to handle session state changes
              [appDelegate sessionStateChanged:session state:state error:error];
-             [self loadUserElements];
              self.isUserOnFacebook = YES;
+             [self loadFacebookUserElements];
              RMUSavedUser *user = [appDelegate fetchCurrentUser];
              [self logFacebookUser:user intoRecommenuWithSession:session];
          }
