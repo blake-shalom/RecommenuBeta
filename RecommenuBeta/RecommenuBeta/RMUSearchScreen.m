@@ -126,7 +126,7 @@
                                @"categoryId" : @"4d4b7105d754a06374d81259",
                                @"client_id" : [[NSUserDefaults standardUserDefaults]stringForKey:@"foursquareID"],
                                @"client_secret" : [[NSUserDefaults standardUserDefaults]stringForKey:@"foursquareSecret"],
-                               @"v" : @20131017
+                               @"v" : @20140225
                                };
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"https://api.foursquare.com/v2/venues/search"

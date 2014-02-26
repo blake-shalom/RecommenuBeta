@@ -198,6 +198,7 @@
     RMUAppDelegate *delegate = (RMUAppDelegate*) [UIApplication sharedApplication].delegate;
     RMUSavedUser *user = [delegate fetchCurrentUser];
     [self sortUserRatingsIntoRatingsArray:user];
+    [self.profileTable reloadData];
 }
 
 /*

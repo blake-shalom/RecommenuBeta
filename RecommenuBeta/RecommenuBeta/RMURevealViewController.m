@@ -149,7 +149,7 @@
       parameters:@{@"VENUE_ID": [NSString stringWithFormat:@"%@", foursquareID],
                    @"client_id" : [[NSUserDefaults standardUserDefaults] stringForKey:@"foursquareID"],
                    @"client_secret" : [[NSUserDefaults standardUserDefaults]stringForKey:@"foursquareSecret"],
-                   @"v" : @20131017}
+                   @"v" : @20140225}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              [self.view setHidden:NO];
              NSLog(@"MENU : %@", responseObject);
