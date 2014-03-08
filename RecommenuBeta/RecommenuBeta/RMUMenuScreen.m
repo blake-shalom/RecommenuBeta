@@ -64,7 +64,7 @@
     self.carousel.type = iCarouselTypeLinear;
     self.carousel.delegate = self;
     self.carousel.dataSource = self;
-    self.carousel.decelerationRate = 0.4;
+    self.carousel.decelerationRate = 0.7;
     self.carousel.clipsToBounds = YES;
     self.carousel.pagingEnabled = YES;
     

@@ -236,7 +236,7 @@
 		9D1DA87718BC3A8500D2A35A /* top_bar_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_bar_grey@2x.png"; sourceTree = "<group>"; };
 		9D1DA87818BC3A8500D2A35A /* x_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x_close.png; sourceTree = "<group>"; };
 		9D1DA87918BC3A8500D2A35A /* x_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x_close@2x.png"; sourceTree = "<group>"; };
-		9D1DA87E18BC582200D2A35A /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
+		9D1DA87E18BC582200D2A35A /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		9D1DA87F18BD217600D2A35A /* RMUUserTermsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUUserTermsScreen.h; sourceTree = "<group>"; };
 		9D1DA88018BD217600D2A35A /* RMUUserTermsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUUserTermsScreen.m; sourceTree = "<group>"; };
 		9D2759EA1860A53E003BF004 /* ellipse_select_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ellipse_select_@2x.png"; sourceTree = "<group>"; };
@@ -1345,7 +1345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Blake Ellingham (K32XSJCV9L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/blakeellingham/Documents/Recommenu/RecommenuBeta/RecommenuBeta,

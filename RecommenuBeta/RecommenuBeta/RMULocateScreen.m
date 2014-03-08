@@ -259,6 +259,7 @@
 
 - (void)findFallbacksWithRadius:(NSInteger)radius
 {
+    [self.fallbackRest removeAllObjects];
     CLLocationCoordinate2D coord = self.location.coordinate;
     NSString *latLongString = [NSString stringWithFormat:@"%f,%f", coord.latitude, coord.longitude];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

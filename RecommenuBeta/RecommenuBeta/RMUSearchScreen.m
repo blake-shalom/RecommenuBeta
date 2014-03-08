@@ -120,7 +120,7 @@
     NSString *latLongString = [NSString stringWithFormat:@"%f,%f", coord.latitude, coord.longitude];
     NSDictionary *paramDic = @{@"ll" : latLongString,
                                @"limit": @15,
-                               @"radius" : @12800,
+                               @"radius" : @24800,
                                @"intent" : @"browse",
                                @"query" : searchBar.text,
                                @"categoryId" : @"4d4b7105d754a06374d81259",

@@ -171,6 +171,11 @@
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"RESPONSE FROM GET FRIENDS LIST: %@", responseObject);
              self.friendsArray = [responseObject objectForKey:@"response"];
+             self.friendsArray = [self.friendsArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                 NSString *last1 = [obj1 objectForKey:@"last_name"];
+                 NSString *last2 = [obj2 objectForKey:@"last_name"];
+                 return [last1 localizedCompare:last2];
+             }];
              if (!self.isOnPastRatings) {
                  [self.profileTable setHidden:NO];
                  [self.emptyView setHidden:YES];
@@ -189,6 +194,10 @@
              }
          }];
 }
+
+/*
+ *  Sets analytics and user feedback data
+ */
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -441,6 +450,8 @@
 /*
  *  Logs a user with Facebook into Recommenu's DB
  */
+
+#warning TODO handle failure cases!!!
 
 - (void)logFacebookUser:(RMUSavedUser*)user intoRecommenuWithSession:(FBSession*)session
 {
