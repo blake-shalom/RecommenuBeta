@@ -21,8 +21,8 @@
         [self.layer setShadowOpacity:0.8];
         [self.layer setShadowRadius:5.0];
         [self.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
-        self.layer.borderColor = [UIColor blackColor].CGColor;
-        self.layer.borderWidth = 0.5f;
+//        self.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.layer.borderWidth = 0.5f;
         // Initialization code
     }
     return self;

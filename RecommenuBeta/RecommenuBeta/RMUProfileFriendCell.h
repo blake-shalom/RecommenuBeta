@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *friendImage;
 @property (weak, nonatomic) IBOutlet UILabel *friendNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numRatingsLabel;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 @end

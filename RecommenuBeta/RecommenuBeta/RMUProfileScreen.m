@@ -287,6 +287,7 @@
 
 #pragma mark - UITableView Data source
 
+
 /*
  *  Return the right height, depending on the selected index
  */
@@ -326,17 +327,24 @@
     else {
         static NSString *CellIdentifier = @"friendCell";
         RMUProfileFriendCell *friendCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        [friendCell.indicator startAnimating];
+        for (UIView *subview in friendCell.loadingView.subviews) {
+            if ([subview isKindOfClass:[FBProfilePictureView class]]) {
+                [subview removeFromSuperview];
+            }
+        }
         NSDictionary *friendDict = self.friendsArray[indexPath.row];
         NSString *nameOfFriend = [NSString stringWithFormat:(@"%@ %@"), [friendDict objectForKey:@"first_name"], [friendDict objectForKey:@"last_name"]];
         [friendCell.friendNameLabel setText:nameOfFriend];
         FBProfilePictureView *profileView = [[FBProfilePictureView alloc]initWithProfileID:[friendDict objectForKey:@"facebook_id"] pictureCropping:FBProfilePictureCroppingSquare];
         [friendCell.numRatingsLabel setText:@""];
-        [profileView setFrame:friendCell.friendImage.frame];
-        [friendCell addSubview:profileView];
+        [profileView setFrame:friendCell.friendImage.bounds];
+        [friendCell.loadingView addSubview:profileView];
         cell = friendCell;
     }
     return cell;
 }
+
 
 /*
  *  Number of rows checks the backend sotrage and return depending on state

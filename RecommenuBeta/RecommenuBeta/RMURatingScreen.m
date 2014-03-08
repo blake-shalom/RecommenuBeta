@@ -253,6 +253,7 @@
 - (void)likeEntree:(UIButton*)button
 {
     RMUMeal *meal = (RMUMeal*) self.currentCourse.meals[button.tag];
+    NSLog(@"%@, %@, %@ ,%@, %@, %@", meal.mealDescription, meal.mealID, meal.mealName, meal.mealPrice, self.currentRestaurant.restFoursquareID, self.currentRestaurant.restName);
     if (!meal.isLiked && !meal.isDisliked){
         button.selected = !button.selected;
         meal.isLiked = YES;

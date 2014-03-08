@@ -123,6 +123,7 @@
              NSLog(@"Success with venue response: %@", responseObject);
              self.currentRestaurant = [[RMURestaurant alloc]initWithDictionary:[responseObject objectForKey:@"response"]
                                                              andRestaurantName:name];
+             self.currentRestaurant.restFoursquareID = recommenuID;
              if (self.currentRestaurant.menus.count == 0)
                  [self setChildViewControllersUIWithCurrentRestaurant];
              // Questionable.........
