@@ -301,16 +301,34 @@
 #pragma mark - Interactivity Methods
 
 /*
+ *  UI elements are back to normal
+ */
+
+-(void)revertUI
+{
+    [self.dismissButton setUserInteractionEnabled:NO];
+    [self.locationManager startUpdatingLocation];
+    self.restString = @"";
+    [self.yesButton setUserInteractionEnabled:YES];
+    [self.noButton setUserInteractionEnabled:YES];
+}
+
+/*
  *  Allows a user to reload process should they pick the wrong restaurant
  */
 
-- (IBAction)dismissPopups:(id)sender
+- (IBAction)reloadLocation:(id)sender
 {
     self.hasDroppedPin = NO;
     [mapView_ clear];
-    [self.popupView setHidden:YES];
-    [self.fallbackPopup setHidden:YES];
-    [self animateOutGradient];
+    if (!self.popupView.isHidden){
+        [self.popupView setHidden:YES];
+        [self.fallbackPopup setHidden:YES];
+        [self animateOutGradient];
+    }
+    else {
+        [self revertUI];
+    }
 }
 
 /*
@@ -445,11 +463,7 @@
                      animations:^{
                          [self.gradientImage setAlpha:0.0f];
                      } completion:^(BOOL finished) {
-                         [self.dismissButton setUserInteractionEnabled:NO];
-                         [self.locationManager startUpdatingLocation];
-                         self.restString = @"";
-                         [self.yesButton setUserInteractionEnabled:YES];
-                         [self.noButton setUserInteractionEnabled:YES];
+                         [self revertUI];
                      }];
 }
 

@@ -50,7 +50,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissPopups:" destination="WW4-31-mjr" eventType="touchUpInside" id="NTY-3I-p4Q"/>
+                                            <action selector="reloadLocation:" destination="WW4-31-mjr" eventType="touchUpInside" id="At6-Uh-NZI"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45m-f4-5eF">
@@ -65,9 +65,9 @@
                                                 <rect key="frame" x="20" y="148" width="102" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="YES">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="confirmRestaurant:" destination="WW4-31-mjr" eventType="touchUpInside" id="jwp-mr-IHz"/>
@@ -91,7 +91,7 @@
                                                 <rect key="frame" x="146" y="148" width="102" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="NO">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -828,19 +828,27 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="nAz-sp-Fuf">
-                                                            <rect key="frame" x="20" y="15" width="218" height="50"/>
+                                                            <rect key="frame" x="20" y="4" width="218" height="37"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
                                                             <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="dRY-Ry-RW5">
-                                                            <rect key="frame" x="278" y="27" width="22" height="25"/>
+                                                            <rect key="frame" x="284" y="27" width="22" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-og-xA5">
+                                                            <rect key="frame" x="20" y="49" width="250" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="addressLabel" destination="ikJ-og-xA5" id="wIk-vN-2bs"/>
                                                     <outlet property="resultLabel" destination="nAz-sp-Fuf" id="HTN-dA-pe2"/>
                                                     <outlet property="typeBadge" destination="dRY-Ry-RW5" id="HL4-j8-7Ql"/>
                                                 </connections>
@@ -1609,7 +1617,7 @@ Special Thanks : Chris Guzman for his service, iCarousel and Reveal Controller t
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-eL-ugP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top_bar2.png" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-eL-ugP">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="68"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -2131,6 +2139,7 @@ Special Thanks : Chris Guzman for his service, iCarousel and Reveal Controller t
         <image name="popup_ratingbreakdown.png" width="266" height="301"/>
         <image name="thumbs_up_profile.png" width="39" height="39"/>
         <image name="top_bar.png" width="320" height="69"/>
+        <image name="top_bar2.png" width="320" height="65"/>
         <image name="top_bar_grey.png" width="320" height="69"/>
         <image name="top_section.png" width="320" height="119"/>
         <image name="top_section_2.png" width="320" height="86"/>
@@ -2143,8 +2152,8 @@ Special Thanks : Chris Guzman for his service, iCarousel and Reveal Controller t
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cec-ZC-rvl"/>
-        <segue reference="k7B-Te-j8Z"/>
         <segue reference="1ex-Vq-BDP"/>
+        <segue reference="xfv-IL-cqR"/>
+        <segue reference="k7B-Te-j8Z"/>
     </inferredMetricsTieBreakers>
 </document>

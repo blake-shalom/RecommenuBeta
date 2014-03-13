@@ -162,6 +162,9 @@
     if (![self.managedObjectContext save:&saveError])
         NSLog(@"Error Saving %@", saveError);
     [self handleInitialFacebookLoginWithUser:currentUser];
+    
+    // change top bar to white instead of black
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
 

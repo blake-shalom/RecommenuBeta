@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *typeBadge;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end

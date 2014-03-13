@@ -221,6 +221,8 @@
         cell = [[RMUSearchCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     [cell.resultLabel setText:[self.searchResultsArray[[indexPath row]] objectForKey:@"name"]];
+    [cell.addressLabel setText:[[self.searchResultsArray[[indexPath row]] objectForKey:@"location"] objectForKey:@"address"]];
+
     return cell;
 }
 
